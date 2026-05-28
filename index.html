@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gnana Tulasi Makineni — Data Scientist & BI Developer. 5+ years building ML pipelines, Power BI dashboards, and Gen AI workflows that move business metrics." />
+  <meta name="description" content="Gnana Tulasi Makineni — Data Scientist & BI Developer. 5+ years building machine learning models, Power BI dashboards, and analytics for manufacturing, insurance, and research teams." />
   <meta name="theme-color" content="#06070d" />
   <meta property="og:title" content="Gnana Tulasi Makineni — Data Scientist" />
-  <meta property="og:description" content="ML, Power BI, and Gen AI work that moves business metrics." />
+  <meta property="og:description" content="Data Scientist & BI Developer. I turn data into decisions teams can act on." />
   <meta property="og:type" content="website" />
   <title>Gnana Tulasi Makineni — Data Scientist & BI Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,10 +94,10 @@
       </div>
 
       <div class="hero-tagline" data-reveal>
-        <p class="tagline-lead">Turning <em>raw signal</em> into business decisions.</p>
+        <p class="tagline-lead">I turn <em>data</em> into decisions teams can act on.</p>
         <p class="tagline-sub">
-          Data Scientist &amp; BI Developer — 5+ years across machine learning,
-          analytics, and visualization for manufacturing, insurance, and research domains.
+          Data Scientist &amp; BI Developer with 5+ years building machine learning
+          models, dashboards, and analytics for manufacturing, insurance, and research teams.
         </p>
       </div>
 
@@ -160,21 +160,22 @@
         <div class="about-copy" data-reveal>
           <p class="about-eyebrow">— A note from me</p>
           <h2 class="about-headline">
-            I build the <em>quiet infrastructure</em> behind every confident decision.
+            I build the <em>data systems</em> that help teams make better decisions.
           </h2>
           <div class="about-body">
             <p>
-              I'm a data scientist working at the intersection of machine learning,
-              business intelligence, and the messy reality of operational data.
-              At <strong>Actual Reality Technologies</strong>, I lead engineering on
-              <strong>RebarIQ</strong> — a Gen AI pipeline that converts structural
-              engineering PDFs into structured JSON and produces accurate rebar takeoffs.
+              I'm a data scientist focused on machine learning, business intelligence,
+              and operational data. At <strong>Actual Reality Technologies</strong>,
+              I build automated alert systems for manufacturing plants and scenario-modeling
+              dashboards for insurance clients — work that has cut energy use,
+              extended equipment life, and surfaced new savings opportunities.
             </p>
             <p>
-              Before that, I spent eighteen months at <strong>BGSU Campus Operations</strong>
-              building Power BI dashboards and DAX models that financial and facilities
-              teams still use to plan against. My research roots go back to NHANES public
-              health data and ensemble models for biological-age estimation.
+              Before that, I spent 18 months at <strong>BGSU Campus Operations</strong>
+              building Power BI dashboards and data models that financial and facilities
+              teams use every day to plan budgets and operations. My earlier research used
+              public health data (NHANES) to train machine learning models that estimate
+              biological age from lifestyle and medical inputs.
             </p>
             <p>
               I care about three things: <span class="hl">making the data trustworthy</span>,
@@ -210,14 +211,14 @@
 
       <div class="work-intro">
         <h2 class="work-headline">
-          Pipelines, models, and dashboards I've shipped — selected for
-          <em>measurable</em> business impact.
+          Projects I've built with <em>measurable</em> business impact —
+          dashboards, alert systems, and machine learning models.
         </h2>
       </div>
 
       <div class="work-list">
 
-        <!-- Project 01: RebarIQ -->
+        <!-- Project 01: Claim Rerouting -->
         <article class="project" data-reveal>
           <div class="project-marker">
             <span class="marker-num">01</span>
@@ -225,96 +226,31 @@
           </div>
           <div class="project-content">
             <div class="project-head">
-              <span class="project-tag">Generative AI · PDF Pipeline</span>
-              <h3 class="project-title">RebarIQ</h3>
+              <span class="project-tag">Power BI · Insurance Analytics</span>
+              <h3 class="project-title">Claim Rerouting Dashboard</h3>
               <p class="project-sub">
-                Structural engineering PDFs → structured JSON → accurate rebar quantity takeoffs.
+                A Power BI dashboard that estimates how much an insurance company could save
+                by sending claims to cheaper providers.
               </p>
             </div>
             <p class="project-body">
-              A Python pipeline that parses foundation plans from PDF drawings, normalizes
-              them into structured JSON representations, then prompts Gemini to compute
-              rebar quantity takeoffs from that JSON. Replaces hours of manual
-              measurement and tabulation per drawing.
+              Built for an insurance client. The dashboard runs two what-if scenarios —
+              what if 50% of claims went to the lowest-cost provider, and what if 80% did —
+              and compares both against historical claim data to estimate the savings.
+              The client uses it to negotiate better rates with providers and decide which
+              ones to keep in their network.
             </p>
             <div class="project-stack">
-              <span>Python</span><span>Gemini</span><span>PDF parsing</span><span>ezdxf</span><span>JSON schema</span>
+              <span>Power BI</span><span>DAX</span><span>M Query</span><span>What-if analysis</span>
             </div>
             <div class="project-metrics">
               <div class="metric">
-                <div class="metric-num">~hours</div>
-                <div class="metric-label">manual effort eliminated per drawing</div>
-              </div>
-              <div class="metric">
-                <div class="metric-num">JSON</div>
-                <div class="metric-label">canonical intermediate format</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-visual project-visual--rebar">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="rgrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#ff6b35"/>
-                  <stop offset="1" stop-color="#9d8aff"/>
-                </linearGradient>
-              </defs>
-              <g fill="none" stroke="url(#rgrad)" stroke-width="1.2">
-                <rect x="20" y="20" width="160" height="160" rx="2"/>
-                <rect x="35" y="35" width="130" height="130" rx="1"/>
-                <line x1="20" y1="60" x2="180" y2="60"/>
-                <line x1="20" y1="100" x2="180" y2="100"/>
-                <line x1="20" y1="140" x2="180" y2="140"/>
-                <line x1="60" y1="20" x2="60" y2="180"/>
-                <line x1="100" y1="20" x2="100" y2="180"/>
-                <line x1="140" y1="20" x2="140" y2="180"/>
-              </g>
-              <g fill="#0dffc3">
-                <circle cx="60" cy="60" r="2.5"/>
-                <circle cx="100" cy="60" r="2.5"/>
-                <circle cx="140" cy="60" r="2.5"/>
-                <circle cx="60" cy="100" r="2.5"/>
-                <circle cx="100" cy="100" r="2.5"/>
-                <circle cx="140" cy="100" r="2.5"/>
-                <circle cx="60" cy="140" r="2.5"/>
-                <circle cx="100" cy="140" r="2.5"/>
-                <circle cx="140" cy="140" r="2.5"/>
-              </g>
-            </svg>
-          </div>
-        </article>
-
-        <!-- Project 02: Claim Rerouting -->
-        <article class="project project--flip" data-reveal>
-          <div class="project-marker">
-            <span class="marker-num">02</span>
-            <span class="marker-line"></span>
-          </div>
-          <div class="project-content">
-            <div class="project-head">
-              <span class="project-tag">Power BI · Insurance · Scenario Modeling</span>
-              <h3 class="project-title">Claim Rerouting Intelligence</h3>
-              <p class="project-sub">
-                A Power BI scenario engine quantifying savings when claims shift to lower-cost providers.
-              </p>
-            </div>
-            <p class="project-body">
-              Built a dashboard for an insurance client modeling two claim-rerouting scenarios —
-              50% and 80% of claims shifted to the lowest-cost provider — and quantified
-              projected savings against historical claim data. Output supports provider
-              negotiation and network optimization decisions.
-            </p>
-            <div class="project-stack">
-              <span>Power BI</span><span>DAX</span><span>M Query</span><span>Scenario analysis</span>
-            </div>
-            <div class="project-metrics">
-              <div class="metric">
-                <div class="metric-num">2×</div>
-                <div class="metric-label">rerouting scenarios modeled (50% / 80%)</div>
+                <div class="metric-num">2</div>
+                <div class="metric-label">savings scenarios modeled (50% &amp; 80%)</div>
               </div>
               <div class="metric">
                 <div class="metric-num">$$$</div>
-                <div class="metric-label">projected savings quantified</div>
+                <div class="metric-label">projected savings, ready for negotiation</div>
               </div>
             </div>
           </div>
@@ -343,25 +279,27 @@
           </div>
         </article>
 
-        <!-- Project 03: Manufacturing Alerts -->
-        <article class="project" data-reveal>
+        <!-- Project 02: Manufacturing Alerts -->
+        <article class="project project--flip" data-reveal>
           <div class="project-marker">
-            <span class="marker-num">03</span>
+            <span class="marker-num">02</span>
             <span class="marker-line"></span>
           </div>
           <div class="project-content">
             <div class="project-head">
-              <span class="project-tag">Anomaly Detection · Manufacturing · Time Series</span>
+              <span class="project-tag">Anomaly Detection · Manufacturing</span>
               <h3 class="project-title">Manufacturing Alert System</h3>
               <p class="project-sub">
-                Automated alerting trained on historical signal data — 10% energy down, 20% lifespan up.
+                An automated system that warns plant operators about problems early —
+                cutting energy use by 10% and extending equipment life by 20%.
               </p>
             </div>
             <p class="project-body">
-              Designed and implemented an automated alerting system for a manufacturing
-              facility using historical alert data. The system flags anomalous operating
-              conditions early enough for operators to intervene before equipment damage
-              or energy spikes occur.
+              Built for a manufacturing plant. The system learns from years of past alert
+              data, then watches live operating conditions and flags anything unusual.
+              Operators get a warning before problems become expensive — before equipment
+              breaks down, before energy gets wasted on a faulty cycle, before a small
+              issue becomes a big one.
             </p>
             <div class="project-stack">
               <span>Python</span><span>Anomaly detection</span><span>Statistical thresholding</span><span>Time series</span>
@@ -369,11 +307,11 @@
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num">10%</div>
-                <div class="metric-label">reduction in energy consumption</div>
+                <div class="metric-label">less energy consumed</div>
               </div>
               <div class="metric">
                 <div class="metric-num">20%</div>
-                <div class="metric-label">improvement in critical resource lifespan</div>
+                <div class="metric-label">longer life for critical equipment</div>
               </div>
             </div>
           </div>
@@ -396,6 +334,68 @@
             </svg>
           </div>
         </article>
+
+        <!-- Project 03: Biological Age Estimator -->
+        <article class="project" data-reveal>
+          <div class="project-marker">
+            <span class="marker-num">03</span>
+            <span class="marker-line"></span>
+          </div>
+          <div class="project-content">
+            <div class="project-head">
+              <span class="project-tag">Machine Learning · Public Health Data</span>
+              <h3 class="project-title">Biological Age Estimator</h3>
+              <p class="project-sub">
+                A machine learning model that estimates a person's biological age from
+                their lifestyle and health data.
+              </p>
+            </div>
+            <p class="project-body">
+              Built using NHANES — a public dataset of 20,000 health and lifestyle survey
+              responses. I trained three different models (Random Forest, XGBoost, and
+              ElasticNet) and compared their accuracy, then used feature importance
+              analysis to figure out which habits and health markers matter most when
+              the body's age drifts from the number on the calendar.
+            </p>
+            <div class="project-stack">
+              <span>Python</span><span>Random Forest</span><span>XGBoost</span><span>ElasticNet</span><span>Pandas</span><span>NHANES</span>
+            </div>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num">20K</div>
+                <div class="metric-label">survey records used for training</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num">3</div>
+                <div class="metric-label">ML models compared and tuned</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual project-visual--bioage">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="bgrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#9d8aff"/>
+                  <stop offset="1" stop-color="#0dffc3"/>
+                </linearGradient>
+              </defs>
+              <g fill="url(#bgrad)">
+                <rect x="20" y="34"  width="142" height="10" rx="2"/>
+                <rect x="20" y="54"  width="118" height="10" rx="2" opacity="0.85"/>
+                <rect x="20" y="74"  width="96"  height="10" rx="2" opacity="0.75"/>
+                <rect x="20" y="94"  width="80"  height="10" rx="2" opacity="0.65"/>
+                <rect x="20" y="114" width="62"  height="10" rx="2" opacity="0.55"/>
+                <rect x="20" y="134" width="44"  height="10" rx="2" opacity="0.45"/>
+                <rect x="20" y="154" width="28"  height="10" rx="2" opacity="0.35"/>
+              </g>
+              <line x1="20" y1="22" x2="20" y2="170" stroke="rgba(245,240,232,0.25)"/>
+              <line x1="20" y1="170" x2="180" y2="170" stroke="rgba(245,240,232,0.25)"/>
+              <text x="170" y="44" font-family="JetBrains Mono, monospace" font-size="9" fill="#0dffc3" text-anchor="end">BMI</text>
+              <text x="146" y="64" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(245,240,232,0.6)" text-anchor="end">SLEEP</text>
+              <text x="124" y="84" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(245,240,232,0.6)" text-anchor="end">BP</text>
+            </svg>
+          </div>
+        </article>
       </div>
 
       <!-- secondary projects -->
@@ -405,43 +405,36 @@
 
           <div class="mini-card" data-reveal>
             <div class="mini-tag">Process Optimization</div>
-            <h4>Glass Manufacturing Energy Reduction</h4>
-            <p>Collaborated with the data science team at a glass manufacturing company to reduce energy usage by 4% through data-driven process optimization.</p>
-            <div class="mini-metric">↓ 4% energy</div>
+            <h4>Glass Manufacturing Energy Cut</h4>
+            <p>Worked with the data team at a glass manufacturer to cut energy use by 4% by tuning the production process based on what the data showed was wasteful.</p>
+            <div class="mini-metric">↓ 4% energy use</div>
           </div>
 
           <div class="mini-card" data-reveal>
             <div class="mini-tag">Compliance · Power BI</div>
-            <h4>Chemical Exposure Compliance Dashboards</h4>
-            <p>Power BI dashboards for monitoring chemical exposure limits across multiple plants — enabling side-by-side safety compliance comparison from chemical sample data.</p>
-            <div class="mini-metric">Multi-plant view</div>
+            <h4>Chemical Exposure Dashboards</h4>
+            <p>Power BI dashboards that track chemical exposure across multiple plants. Lets the safety team compare which plants are within limits and which aren't, side by side.</p>
+            <div class="mini-metric">Multi-plant safety view</div>
           </div>
 
           <div class="mini-card" data-reveal>
             <div class="mini-tag">EHS Analytics</div>
             <h4>Holiday Safety Incident Analysis</h4>
-            <p>In-depth analysis of health and safety incidents around long weekends, revealing a 30–40 incident increase post-holiday periods and informing improved safety planning.</p>
-            <div class="mini-metric">+30–40 incidents flagged</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">ML Research · NHANES</div>
-            <h4>Biological Age Estimator</h4>
-            <p>ML model estimating biological age from health &amp; lifestyle questionnaire data (NHANES, 20K records). Random Forest, XGBoost, ElasticNet, with SHAP-style feature importance.</p>
-            <div class="mini-metric">20K records · ensemble models</div>
+            <p>Looked into health and safety incidents around long weekends. Found a clear pattern: 30–40 more incidents happen right after holidays. The result is now used to plan safer post-holiday returns.</p>
+            <div class="mini-metric">+30–40 incidents · pattern surfaced</div>
           </div>
 
           <div class="mini-card" data-reveal>
             <div class="mini-tag">BGSU · Enterprise BI</div>
             <h4>Campus Operations Dashboards</h4>
-            <p>Built and maintained 5 interactive Power BI dashboards and enterprise data models supporting financial and facilities decisions for campus planning. Optimized for 25% faster load.</p>
-            <div class="mini-metric">↓ 25% load time</div>
+            <p>Built and maintained 5 Power BI dashboards that financial and facilities teams use every day to plan campus operations. Tuned the data models so reports load 25% faster.</p>
+            <div class="mini-metric">↓ 25% load time · 5 dashboards</div>
           </div>
 
           <div class="mini-card" data-reveal>
             <div class="mini-tag">Governance · Power BI Service</div>
-            <h4>Workspace Deployment &amp; Governance</h4>
-            <p>Managed deployment and governance of Power BI Service workspaces: dataset refreshes, user permissions, row-level security, and configuration.</p>
+            <h4>Power BI Workspace Governance</h4>
+            <p>Owned the operational side of Power BI at BGSU — scheduled data refreshes, managed who can see what, set up row-level security, and configured the workspace end-to-end.</p>
             <div class="mini-metric">End-to-end ownership</div>
           </div>
 
@@ -473,12 +466,11 @@
               <span class="t-company">Actual Reality Technologies</span>
             </div>
             <ul class="t-bullets">
-              <li>Built <strong>RebarIQ</strong>, a Python pipeline converting structural engineering PDFs into structured JSON and generating rebar quantity takeoffs via Gemini.</li>
-              <li>Modeled <strong>insurance claim rerouting</strong> scenarios in Power BI (50% / 80% shift to lowest-cost providers) to quantify projected savings.</li>
-              <li>Designed an <strong>automated alerting system</strong> for a manufacturing facility — <span class="hl">10% energy reduction, 20% lifespan improvement</span>.</li>
-              <li>Reduced energy usage by <strong>4%</strong> at a glass manufacturing company through data-driven process optimization.</li>
-              <li>Built <strong>chemical exposure compliance</strong> dashboards comparing safety compliance across plants.</li>
-              <li>Surfaced a <strong>30–40 incident</strong> post-holiday spike in health &amp; safety data, informing safety planning.</li>
+              <li>Built a Power BI dashboard for an insurance client that runs <strong>what-if scenarios</strong> on claim routing (50% / 80% to lowest-cost providers) and estimates savings against historical claims.</li>
+              <li>Designed an <strong>automated alert system</strong> for a manufacturing plant — <span class="hl">10% less energy use, 20% longer equipment life</span>.</li>
+              <li>Cut energy use by <strong>4%</strong> at a glass manufacturer by tuning the production process based on what the data showed.</li>
+              <li>Built <strong>chemical exposure dashboards</strong> in Power BI so the safety team can compare plant-to-plant compliance side by side.</li>
+              <li>Investigated health &amp; safety incident data and found a <strong>30–40 incident spike</strong> after long weekends — now used to plan safer post-holiday returns.</li>
             </ul>
           </div>
         </div>
@@ -498,10 +490,10 @@
               <span class="t-company">BGSU Campus Operations</span>
             </div>
             <ul class="t-bullets">
-              <li>Developed and maintained <strong>5 interactive Power BI dashboards</strong> and enterprise data models for financial and facilities decisions.</li>
-              <li>Built advanced <strong>DAX measures and M Query transformations</strong> to address complex reporting requirements and enhance data integrity.</li>
-              <li>Optimized data models for performance and UX — <span class="hl">25% improvement in load times</span>.</li>
-              <li>Managed deployment and governance of Power BI Service workspaces: dataset refreshes, user permissions, security configurations.</li>
+              <li>Built and maintained <strong>5 Power BI dashboards</strong> that financial and facilities teams use every day to plan campus operations.</li>
+              <li>Wrote advanced <strong>DAX measures and M Query transforms</strong> to handle complex reporting needs and keep the data clean and trustworthy.</li>
+              <li>Tuned data models for speed and ease of use — <span class="hl">25% faster load times</span>.</li>
+              <li>Owned the operational side of Power BI: scheduled data refreshes, managed user permissions, and set up workspace security.</li>
             </ul>
           </div>
         </div>
@@ -521,9 +513,9 @@
               <span class="t-company">MyEdMaster</span>
             </div>
             <ul class="t-bullets">
-              <li>Developed an ML model to estimate <strong>biological age</strong> using NHANES health &amp; lifestyle questionnaire data (20K records).</li>
-              <li>Engineered features from physiological, behavioral, and medical variables to train <strong>Random Forest, XGBoost, ElasticNet</strong>.</li>
-              <li>Evaluated model performance with cross-validation and interpreted feature importance to identify key aging-related predictors.</li>
+              <li>Built a machine learning model that estimates <strong>biological age</strong> from people's lifestyle and health survey answers (NHANES, 20,000 records).</li>
+              <li>Engineered features from physical, behavioral, and medical inputs and trained three different models — <strong>Random Forest, XGBoost, and ElasticNet</strong> — to compare them.</li>
+              <li>Evaluated each model with cross-validation and used feature importance to find which habits and health markers matter most for biological aging.</li>
             </ul>
           </div>
         </div>
@@ -540,7 +532,8 @@
 
       <div class="skills-intro">
         <h2 class="skills-headline">
-          A toolkit built around <em>shipping</em> — from raw data to executive dashboard.
+          The tools I use to take a project from <em>raw data</em> to a finished
+          dashboard or model.
         </h2>
       </div>
 
@@ -583,14 +576,14 @@
         <div class="skill-group" data-reveal>
           <h4 class="skill-cat">Generative AI &amp; NLP</h4>
           <div class="chips">
-            <span class="chip-strong">Gemini</span><span>LLM pipelines</span><span>Prompt engineering</span><span>NLP</span><span>Structured extraction</span>
+            <span>LLM pipelines</span><span>Prompt engineering</span><span>Natural language processing</span><span>Structured data extraction</span>
           </div>
         </div>
 
         <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Document &amp; Drawing Automation</h4>
+          <h4 class="skill-cat">Document Automation</h4>
           <div class="chips">
-            <span>PDF parsing</span><span>JSON extraction</span><span>ezdxf (DXF/AutoCAD)</span><span>Excel automation</span>
+            <span>PDF parsing</span><span>JSON extraction</span><span>Excel automation</span>
           </div>
         </div>
       </div>
@@ -635,10 +628,11 @@
 
       <div class="contact-inner">
         <h2 class="contact-headline">
-          Let's build something <em>measurably</em> useful.
+          Let's build something <em>useful</em> together.
         </h2>
         <p class="contact-sub">
-          Open to data science, ML, and BI roles. The fastest reply is to email me directly.
+          I'm open to data science, machine learning, and BI roles.
+          The fastest way to reach me is email — I usually reply within a day.
         </p>
 
         <div class="contact-actions">
