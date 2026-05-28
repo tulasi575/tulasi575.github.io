@@ -1572,6 +1572,200 @@ section { position: relative; }
   transform: translateY(-3px);
 }
 
+/* =========================================================
+   MOBILE — tightened, considered, neat
+   ========================================================= */
+
+/* ---- tablet (≤ 900px) ---- */
+@media (max-width: 900px) {
+  :root {
+    --section-pad: 4.5rem;
+  }
+  .nav { top: 30px; }
+  .ticker { font-size: 9.5px; padding: 7px 0; }
+
+  /* hero */
+  .hero { padding-top: 9rem; padding-bottom: 4rem; min-height: auto; }
+  .hero-title { margin-bottom: 2rem; line-height: 0.92; }
+  .title-line--italic { padding-left: 1.5rem; }
+  .title-line--outline { padding-left: 3rem; -webkit-text-stroke-width: 1px; }
+
+  /* pronounce wraps gracefully */
+  .pronounce {
+    margin: -0.5rem 0 2.5rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-start;
+    padding: 0.7rem 0.9rem;
+  }
+  .pronounce-val {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .hero-actions { margin-bottom: 4rem; }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+  }
+  .scroll-cue { display: none; }
+
+  /* section spacing */
+  .section-label { margin-bottom: 2rem; }
+
+  /* projects: hide the side visual, simplify marker */
+  .project-visual { display: none; }
+  .project { grid-template-columns: 36px 1fr !important; gap: 1rem; padding-bottom: 3rem; }
+  .project-marker { padding-top: 0.3rem; }
+  .marker-line { min-height: 60px; }
+
+  /* contact cards */
+  .contact-card { padding: 1.5rem 1.4rem; }
+  .cc-val { font-size: 1.2rem; }
+}
+
+/* ---- mobile (≤ 600px) ---- */
+@media (max-width: 600px) {
+  :root {
+    --gutter: 1.25rem;
+    --section-pad: 3.5rem;
+  }
+
+  /* nav: tighter, no Resume label, just download icon */
+  .nav { top: 26px; padding: 0 1rem; }
+  .nav-logo { font-size: 1rem; }
+  .logo-mark { width: 32px; height: 32px; font-size: 0.78rem; }
+  .nav-cta { padding: 8px 14px; font-size: 0.8rem; }
+  .nav-cta span { display: none; }
+
+  /* ticker: smaller, faster scroll feel */
+  .ticker { font-size: 9px; letter-spacing: 0.08em; padding: 6px 0; }
+  .ticker-track { gap: 1.5rem; }
+
+  /* hero */
+  .hero {
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
+  }
+  .hero-meta {
+    font-size: 0.62rem;
+    gap: 0.55rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.14em;
+    flex-wrap: wrap;
+  }
+  .meta-divider { display: none; }
+
+  .hero-title {
+    font-size: clamp(3rem, 17vw, 6rem);
+    margin-bottom: 1.75rem;
+  }
+  .title-line--italic { padding-left: 1rem; }
+  .title-line--outline { padding-left: 2rem; }
+
+  .tagline-lead { font-size: 1.35rem; line-height: 1.25; }
+  .tagline-sub { font-size: 0.95rem; }
+  .hero-tagline { margin-bottom: 2rem; }
+
+  .hero-actions { gap: 0.75rem; margin-bottom: 3.5rem; }
+  .btn { padding: 13px 22px; font-size: 0.88rem; flex: 1; justify-content: center; min-width: 0; }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.25rem;
+    padding-top: 2rem;
+  }
+  .stat-num { font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .stat-label { font-size: 0.62rem; letter-spacing: 0.08em; }
+
+  /* section label simpler */
+  .label-text::before { width: 18px; margin-right: 0.5rem; }
+  .section-label { font-size: 0.65rem; }
+
+  /* about: portrait centered, smaller, captions below */
+  .about-portrait { position: static; }
+  .portrait-frame { max-width: 280px; margin: 0 auto; }
+  .portrait-caption { justify-content: center; text-align: center; margin-top: 1rem; }
+
+  .about-headline { font-size: 1.55rem; line-height: 1.2; margin-bottom: 1.75rem; }
+  .about-body { font-size: 0.98rem; line-height: 1.7; }
+  .about-body p { margin-bottom: 1.25rem; }
+  .about-meta { gap: 1.25rem; margin-top: 2.25rem; }
+
+  /* work / projects */
+  .work-headline, .skills-headline { font-size: 1.55rem; line-height: 1.25; }
+  .work-list { gap: 3rem; }
+  .work-secondary { margin-top: 3rem; }
+  .secondary-headline { font-size: 1.2rem; margin-bottom: 1.75rem; }
+  .secondary-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+
+  .project-title { font-size: 1.9rem; line-height: 1.05; margin-bottom: 1rem; }
+  .project-sub { font-size: 1.02rem; margin-bottom: 1.25rem; }
+  .project-body { font-size: 0.96rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .project-tag { font-size: 0.65rem; margin-bottom: 0.85rem; }
+  .project-stack { gap: 0.4rem; margin-bottom: 1.5rem; }
+  .project-stack span { font-size: 0.66rem; padding: 4px 9px; }
+
+  .project-metrics { grid-template-columns: 1fr; gap: 1rem; }
+  .metric { padding-left: 1rem; }
+  .metric-num { font-size: 1.5rem; }
+  .metric-label { font-size: 0.8rem; }
+
+  .mini-card { padding: 1.5rem 1.3rem; gap: 0.7rem; }
+  .mini-card h4 { font-size: 1.15rem; }
+  .mini-card p { font-size: 0.88rem; }
+
+  /* experience */
+  .timeline { gap: 1.5rem; }
+  .t-period { padding-bottom: 0.5rem; }
+  .t-year { font-size: 1.45rem; }
+  .t-range { font-size: 0.62rem; letter-spacing: 0.1em; }
+  .t-card { padding: 1.25rem 1.25rem 1.5rem; }
+  .t-role h3 { font-size: 1.3rem; }
+  .t-company { font-size: 0.72rem; }
+  .t-bullets li { font-size: 0.92rem; padding-left: 1.25rem; }
+
+  /* skills */
+  .skill-cat { font-size: 0.68rem; margin-bottom: 1rem; padding-bottom: 0.65rem; }
+  .chips span { padding: 7px 12px; font-size: 0.8rem; }
+
+  /* education */
+  .edu-card { padding: 2rem 1.5rem; }
+  .edu-year { font-size: 2.4rem; margin-bottom: 0.85rem; }
+  .edu-card h3 { font-size: 1.25rem; }
+  .edu-school { font-size: 0.88rem; margin-bottom: 1.25rem; }
+  .edu-stats { gap: 1.5rem; }
+  .edu-val { font-size: 1.05rem; }
+
+  /* contact */
+  .contact-headline { font-size: 2.2rem; line-height: 1.08; }
+  .contact-sub { font-size: 1rem; margin-bottom: 2.5rem; }
+  .contact-card { padding: 1.35rem 1.25rem; }
+  .cc-val { font-size: 1.1rem; }
+
+  /* footer */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2.5rem 1.25rem;
+  }
+  .footer-top { align-self: flex-end; margin-top: -3rem; }
+
+  /* atmosphere tuning — less blob bleed on small screens */
+  .aurora { filter: blur(60px); }
+  .grid-overlay { background-size: 50px 50px; opacity: 0.3; }
+}
+
+/* ---- very small (≤ 380px) — fine adjustments ---- */
+@media (max-width: 380px) {
+  .hero-title { font-size: clamp(2.6rem, 16vw, 4.5rem); }
+  .stat-num { font-size: 1.95rem; }
+  .hero-actions { flex-direction: column; }
+  .btn { width: 100%; }
+}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
