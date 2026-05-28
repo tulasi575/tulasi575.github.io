@@ -1,0 +1,17 @@
+# Editor / IDE
+.claude/
+.vscode/
+.idea/
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Dependency / build (none expected, but defensive)
+node_modules/
+dist/
+build/
+
+# Misc
+*.log
