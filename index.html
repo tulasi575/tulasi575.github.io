@@ -225,7 +225,7 @@
 
       <div class="work-list">
 
-        <!-- Project 01: Claim Rerouting -->
+        <!-- Project 01: Healthcare Claim Routing Engine -->
         <article class="project" data-reveal>
           <div class="project-marker">
             <span class="marker-num">01</span>
@@ -233,31 +233,31 @@
           </div>
           <div class="project-content">
             <div class="project-head">
-              <span class="project-tag">Power BI · Insurance Analytics</span>
-              <h3 class="project-title">Claim Rerouting Dashboard</h3>
+              <span class="project-tag">Healthcare · Live Analytics · Power BI</span>
+              <h3 class="project-title">Healthcare Claim Routing Engine</h3>
               <p class="project-sub">
-                A Power BI dashboard that estimates how much an insurance company could save
-                by sending claims to cheaper providers.
+                A live analytics engine for a healthcare insurance client — surfaced
+                <strong>~$180K</strong> in projected savings by routing claims to lower-cost
+                in-network providers.
               </p>
             </div>
             <p class="project-body">
-              Built for an insurance client. The dashboard runs two what-if scenarios —
-              what if 50% of claims went to the lowest-cost provider, and what if 80% did —
-              and compares both against historical claim data to estimate the savings.
-              The client uses it to negotiate better rates with providers and decide which
-              ones to keep in their network.
+              Developed and deployed for a healthcare insurance client. The engine evaluates
+              claim-routing strategies against historical claim data and identifies which
+              in-network providers would unlock the most savings. The client uses the output
+              to back provider negotiations and make data-driven network optimization decisions.
             </p>
             <div class="project-stack">
-              <span>Power BI</span><span>DAX</span><span>M Query</span><span>What-if analysis</span>
+              <span>Power BI</span><span>DAX</span><span>M Query</span><span>Healthcare analytics</span><span>Live data</span>
             </div>
             <div class="project-metrics">
               <div class="metric">
-                <div class="metric-num">2</div>
-                <div class="metric-label">savings scenarios modeled (50% &amp; 80%)</div>
+                <div class="metric-num">~$180K</div>
+                <div class="metric-label">projected savings identified</div>
               </div>
               <div class="metric">
-                <div class="metric-num">$$$</div>
-                <div class="metric-label">projected savings, ready for negotiation</div>
+                <div class="metric-num">Live</div>
+                <div class="metric-label">analytics engine, deployed to production</div>
               </div>
             </div>
           </div>
@@ -286,7 +286,7 @@
           </div>
         </article>
 
-        <!-- Project 02: Manufacturing Alerts -->
+        <!-- Project 02: Libbey Glass KPI Dashboard -->
         <article class="project project--flip" data-reveal>
           <div class="project-marker">
             <span class="marker-num">02</span>
@@ -294,49 +294,89 @@
           </div>
           <div class="project-content">
             <div class="project-head">
-              <span class="project-tag">Anomaly Detection · Manufacturing</span>
-              <h3 class="project-title">Manufacturing Alert System</h3>
+              <span class="project-tag">Libbey Glass · Real-time KPI · Power BI</span>
+              <h3 class="project-title">Libbey Glass KPI Dashboard</h3>
               <p class="project-sub">
-                An automated system that warns plant operators about problems early —
-                cutting energy use by 10% and extending equipment life by 20%.
+                A production KPI dashboard giving <strong>10+ stakeholders</strong> —
+                including the <strong>CFO and CIO</strong> — real-time visibility into
+                Libbey Glass's manufacturing operations.
               </p>
             </div>
             <p class="project-body">
-              Built for a manufacturing plant. The system learns from years of past alert
-              data, then watches live operating conditions and flags anything unusual.
-              Operators get a warning before problems become expensive — before equipment
-              breaks down, before energy gets wasted on a faulty cycle, before a small
-              issue becomes a big one.
+              Designed, built, and shipped to production for Libbey Glass. The dashboard
+              surfaces the manufacturing KPIs that matter most — in real time — to the
+              people who run the business. Executive leadership (CFO, CIO) and plant
+              operations teams all rely on it for data-driven daily decisions about the
+              production floor.
             </p>
             <div class="project-stack">
-              <span>Python</span><span>Anomaly detection</span><span>Statistical thresholding</span><span>Time series</span>
+              <span>Power BI</span><span>DAX</span><span>M Query</span><span>Real-time data</span><span>Manufacturing KPIs</span>
             </div>
             <div class="project-metrics">
               <div class="metric">
-                <div class="metric-num">10%</div>
-                <div class="metric-label">less energy consumed</div>
+                <div class="metric-num">10+</div>
+                <div class="metric-label">stakeholders using it daily</div>
               </div>
               <div class="metric">
-                <div class="metric-num">20%</div>
-                <div class="metric-label">longer life for critical equipment</div>
+                <div class="metric-num">CFO · CIO</div>
+                <div class="metric-label">executive leadership + plant ops</div>
               </div>
             </div>
           </div>
-          <div class="project-visual project-visual--alert">
+          <div class="project-visual project-visual--kpi">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
-                <linearGradient id="agrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#9d8aff"/>
-                  <stop offset="1" stop-color="#ff6b35"/>
+                <linearGradient id="kpigrad-a" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0dffc3"/>
+                  <stop offset="1" stop-color="#9d8aff"/>
+                </linearGradient>
+                <linearGradient id="kpigrad-b" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ff6b35"/>
+                  <stop offset="1" stop-color="#ffc463"/>
                 </linearGradient>
               </defs>
-              <path d="M10 100 Q 30 70, 50 100 T 90 100 T 130 100 Q 145 30, 160 100 T 195 100" fill="none" stroke="url(#agrad)" stroke-width="1.6"/>
-              <line x1="10" y1="60" x2="195" y2="60" stroke="rgba(255,107,53,0.3)" stroke-dasharray="2 4"/>
-              <line x1="10" y1="140" x2="195" y2="140" stroke="rgba(255,107,53,0.3)" stroke-dasharray="2 4"/>
-              <circle cx="145" cy="38" r="4" fill="#ff6b35"/>
-              <circle cx="145" cy="38" r="9" fill="none" stroke="#ff6b35" stroke-width="0.8" opacity="0.5">
-                <animate attributeName="r" from="4" to="14" dur="1.8s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" from="0.6" to="0" dur="1.8s" repeatCount="indefinite"/>
+              <!-- KPI tiles -->
+              <g>
+                <rect x="20" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
+                <text x="28" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#0dffc3" letter-spacing="0.5">YIELD</text>
+                <text x="28" y="58" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">98.4%</text>
+
+                <rect x="104" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
+                <text x="112" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#ff6b35" letter-spacing="0.5">OEE</text>
+                <text x="112" y="58" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">87.2</text>
+
+                <rect x="20" y="76" width="160" height="48" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
+                <text x="28" y="92" font-family="JetBrains Mono, monospace" font-size="6" fill="rgba(245,240,232,0.6)" letter-spacing="0.5">THROUGHPUT · 24H</text>
+                <!-- mini bar chart -->
+                <g fill="url(#kpigrad-a)">
+                  <rect x="28"  y="106" width="6" height="14"/>
+                  <rect x="38"  y="100" width="6" height="20"/>
+                  <rect x="48"  y="108" width="6" height="12"/>
+                  <rect x="58"  y="96"  width="6" height="24"/>
+                  <rect x="68"  y="102" width="6" height="18"/>
+                  <rect x="78"  y="98"  width="6" height="22"/>
+                  <rect x="88"  y="104" width="6" height="16"/>
+                  <rect x="98"  y="94"  width="6" height="26"/>
+                  <rect x="108" y="100" width="6" height="20"/>
+                  <rect x="118" y="106" width="6" height="14"/>
+                  <rect x="128" y="98"  width="6" height="22"/>
+                  <rect x="138" y="92"  width="6" height="28"/>
+                  <rect x="148" y="100" width="6" height="20"/>
+                  <rect x="158" y="104" width="6" height="16"/>
+                  <rect x="168" y="96"  width="6" height="24"/>
+                </g>
+
+                <rect x="20" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
+                <text x="28" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#9d8aff" letter-spacing="0.5">DOWNTIME</text>
+                <text x="28" y="168" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">2.1h</text>
+
+                <rect x="104" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
+                <text x="112" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#ffc463" letter-spacing="0.5">QUALITY</text>
+                <text x="112" y="168" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">A+</text>
+              </g>
+              <!-- live indicator -->
+              <circle cx="173" cy="29" r="2" fill="#0dffc3">
+                <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
               </circle>
             </svg>
           </div>
@@ -411,9 +451,16 @@
         <div class="secondary-grid">
 
           <div class="mini-card" data-reveal>
-            <div class="mini-tag">Process Optimization</div>
-            <h4>Glass Manufacturing Energy Cut</h4>
-            <p>Worked with the data team at a glass manufacturer to cut energy use by 4% by tuning the production process based on what the data showed was wasteful.</p>
+            <div class="mini-tag">Anomaly Detection · Manufacturing</div>
+            <h4>Manufacturing Alert System</h4>
+            <p>Automated alerting trained on historical signal data. Warns plant operators about unusual operating conditions before equipment fails or energy gets wasted.</p>
+            <div class="mini-metric">↓ 10% energy · ↑ 20% equipment life</div>
+          </div>
+
+          <div class="mini-card" data-reveal>
+            <div class="mini-tag">Process Optimization · Glass</div>
+            <h4>Glass Production Energy Cut</h4>
+            <p>Worked with the data team at a glass manufacturer to cut energy use by 4% by tuning the production process based on where the data showed waste.</p>
             <div class="mini-metric">↓ 4% energy use</div>
           </div>
 
@@ -473,9 +520,10 @@
               <span class="t-company">Actual Reality Technologies</span>
             </div>
             <ul class="t-bullets">
-              <li>Built a Power BI dashboard for an insurance client that runs <strong>what-if scenarios</strong> on claim routing (50% / 80% to lowest-cost providers) and estimates savings against historical claims.</li>
-              <li>Designed an <strong>automated alert system</strong> for a manufacturing plant — <span class="hl">10% less energy use, 20% longer equipment life</span>.</li>
-              <li>Cut energy use by <strong>4%</strong> at a glass manufacturer by tuning the production process based on what the data showed.</li>
+              <li>Developed and deployed a <strong>live analytics engine</strong> for a healthcare insurance client — identified <span class="hl">~$180K in projected savings</span> by routing claims to lower-cost in-network providers.</li>
+              <li>Designed, built, and shipped a production <strong>KPI dashboard for Libbey Glass</strong> — real-time visibility into manufacturing KPIs for <span class="hl">10+ stakeholders</span> including CFO, CIO, and plant operations.</li>
+              <li>Built an <strong>automated alert system</strong> for a manufacturing plant — <span class="hl">10% less energy use, 20% longer equipment life</span>.</li>
+              <li>Cut energy use by <strong>4%</strong> at a glass manufacturer by tuning the production process based on where the data showed waste.</li>
               <li>Built <strong>chemical exposure dashboards</strong> in Power BI so the safety team can compare plant-to-plant compliance side by side.</li>
               <li>Investigated health &amp; safety incident data and found a <strong>30–40 incident spike</strong> after long weekends — now used to plan safer post-holiday returns.</li>
             </ul>

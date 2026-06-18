@@ -5,9 +5,9 @@
 
 :root {
   /* color */
-  --ink:        #06070d;
-  --ink-2:      #0b0d18;
-  --ink-3:      #14172a;
+  --ink:        #0f1226;
+  --ink-2:      #161a30;
+  --ink-3:      #1f2440;
   --cream:      #f5f0e8;
   --cream-dim:  rgba(245, 240, 232, 0.72);
   --cream-mute: rgba(245, 240, 232, 0.45);
@@ -83,8 +83,8 @@ button { font-family: inherit; cursor: pointer; }
 .aurora {
   position: absolute;
   inset: -25%;
-  filter: blur(90px) saturate(1.12);
-  opacity: 0.92;
+  filter: blur(80px) saturate(1.25);
+  opacity: 1;
 }
 
 .blob {
@@ -98,14 +98,14 @@ button { font-family: inherit; cursor: pointer; }
 .blob-1 {
   width: 62vmax; height: 62vmax;
   top: -12%; left: -12%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.6), transparent 60%);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 130, 80, 0.72), transparent 60%);
   animation-duration: 58s;
 }
 
 .blob-2 {
   width: 52vmax; height: 52vmax;
   top: 25%; right: -18%;
-  background: radial-gradient(circle at 60% 40%, rgba(13, 255, 195, 0.34), transparent 60%);
+  background: radial-gradient(circle at 60% 40%, rgba(40, 220, 200, 0.5), transparent 60%);
   animation-duration: 68s;
   animation-delay: -14s;
 }
@@ -113,7 +113,7 @@ button { font-family: inherit; cursor: pointer; }
 .blob-3 {
   width: 56vmax; height: 56vmax;
   bottom: -12%; left: 18%;
-  background: radial-gradient(circle at 50% 50%, rgba(157, 138, 255, 0.48), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(170, 150, 255, 0.58), transparent 60%);
   animation-duration: 74s;
   animation-delay: -28s;
 }
@@ -121,7 +121,7 @@ button { font-family: inherit; cursor: pointer; }
 .blob-4 {
   width: 42vmax; height: 42vmax;
   top: 50%; left: 45%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 94, 148, 0.28), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 120, 165, 0.38), transparent 60%);
   animation-duration: 52s;
   animation-delay: -7s;
 }
@@ -129,7 +129,7 @@ button { font-family: inherit; cursor: pointer; }
 .blob-5 {
   width: 38vmax; height: 38vmax;
   top: 18%; left: 32%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 196, 99, 0.22), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 210, 130, 0.32), transparent 60%);
   animation-duration: 62s;
   animation-delay: -22s;
 }
@@ -230,7 +230,7 @@ button { font-family: inherit; cursor: pointer; }
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 30%, rgba(6, 7, 13, 0.55) 75%, rgba(6, 7, 13, 0.85) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(8, 10, 24, 0.25) 85%, rgba(8, 10, 24, 0.5) 100%);
   pointer-events: none;
 }
 
