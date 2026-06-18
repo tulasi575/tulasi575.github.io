@@ -16,7 +16,7 @@
 
   --tangerine:  #ff6b35;
   --teal:       #0dffc3;
-  --lavender:   #9d8aff;
+  --lavender:   #d4a574;
   --rose:       #ff5e94;
   --amber:      #ffc463;
 
@@ -113,7 +113,7 @@ button { font-family: inherit; cursor: pointer; }
 .blob-3 {
   width: 56vmax; height: 56vmax;
   bottom: -12%; left: 18%;
-  background: radial-gradient(circle at 50% 50%, rgba(170, 150, 255, 0.58), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(212, 165, 116, 0.58), transparent 60%);
   animation-duration: 74s;
   animation-delay: -28s;
 }
@@ -495,7 +495,7 @@ button { font-family: inherit; cursor: pointer; }
   font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
   text-shadow:
     0 0 60px rgba(255, 107, 53, 0.18),
-    0 0 120px rgba(157, 138, 255, 0.12);
+    0 0 120px rgba(212, 165, 116, 0.12);
 }
 
 .title-line {
@@ -754,7 +754,7 @@ section { position: relative; }
 .portrait-frame {
   box-shadow:
     0 0 60px rgba(255, 107, 53, 0.18),
-    0 0 120px rgba(157, 138, 255, 0.14),
+    0 0 120px rgba(212, 165, 116, 0.14),
     0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
@@ -1443,7 +1443,7 @@ section { position: relative; }
   position: absolute;
   top: 0; right: 0;
   width: 120px; height: 120px;
-  background: radial-gradient(circle at top right, rgba(157, 138, 255, 0.18), transparent 65%);
+  background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.18), transparent 65%);
   pointer-events: none;
 }
 
