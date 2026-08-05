@@ -58,33 +58,6 @@
     });
   }
 
-  /* ---------- custom cursor ---------- */
-  const cursor = document.querySelector('.cursor-dot');
-  if (cursor && window.matchMedia('(min-width: 901px)').matches) {
-    let mx = window.innerWidth / 2;
-    let my = window.innerHeight / 2;
-    let cx = mx, cy = my;
-
-    document.addEventListener('mousemove', (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-    });
-
-    const tick = () => {
-      cx += (mx - cx) * 0.10;
-      cy += (my - cy) * 0.10;
-      cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-
-    const hoverables = document.querySelectorAll('a, button, .mini-card, .contact-card, .chips span');
-    hoverables.forEach((el) => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-    });
-  }
-
   /* ---------- scroll reveals ---------- */
   const reveals = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
@@ -124,33 +97,6 @@
       card.style.setProperty('--my', `${y}%`);
     });
   });
-
-  /* ---------- magnetic buttons ---------- */
-  const magneticEls = document.querySelectorAll('.btn, .nav-cta, .footer-top');
-  magneticEls.forEach((el) => {
-    el.addEventListener('mousemove', (e) => {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) * 0.18;
-      const dy = (e.clientY - cy) * 0.18;
-      el.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-    el.addEventListener('mouseleave', () => {
-      el.style.transform = '';
-    });
-  });
-
-  /* ---------- title characters wonkify on hero hover ---------- */
-  const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle) {
-    heroTitle.addEventListener('mouseenter', () => {
-      heroTitle.style.fontVariationSettings = '"opsz" 144, "SOFT" 100, "WONK" 1';
-    });
-    heroTitle.addEventListener('mouseleave', () => {
-      heroTitle.style.fontVariationSettings = '"opsz" 144, "SOFT" 30, "WONK" 0';
-    });
-  }
 
   /* ---------- year in footer ---------- */
   const yearEl = document.querySelector('.footer-meta span:first-child');

@@ -57,11 +57,6 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  cursor: none;
-}
-
-@media (max-width: 900px) {
-  body { cursor: auto; }
 }
 
 img { max-width: 100%; display: block; }
@@ -260,31 +255,6 @@ button { font-family: inherit; cursor: pointer; }
   opacity: 0.5;
   pointer-events: none;
   mix-blend-mode: multiply;
-}
-
-/* ---------- cursor ---------- */
-.cursor-dot {
-  position: fixed;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--cream);
-  border-radius: 50%;
-  top: 0; left: 0;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.25s var(--ease), height 0.25s var(--ease), background 0.25s var(--ease);
-}
-
-.cursor-dot.is-hover {
-  width: 56px;
-  height: 56px;
-  background: var(--cream);
-}
-
-@media (max-width: 900px) {
-  .cursor-dot { display: none; }
 }
 
 /* ---------- ticker ---------- */
@@ -1923,6 +1893,18 @@ section { position: relative; }
 .nb-kernel.busy .nb-kernel-dot { background: var(--amber); animation: pulse 1s ease-in-out infinite; }
 
 .nb-cell { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+/* markdown cells (rendered prose — About, Education, Contact, title) */
+.md-bar {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.42rem 0.7rem; margin-bottom: 1.5rem;
+  border: 1px solid var(--hairline); border-left: 3px solid var(--cream-mute);
+  border-radius: 6px; background: var(--ink-2);
+  font-family: var(--font-mono); font-size: 0.75rem; color: var(--cream-dim);
+}
+.md-mark { color: var(--tangerine); font-weight: 700; }
+.md-src { color: var(--cream); }
+.md-tag { margin-left: auto; color: var(--cream-mute); font-size: 0.68rem; letter-spacing: 0.05em; }
 
 .cell-bar {
   display: flex; align-items: center; gap: 0.7rem;
