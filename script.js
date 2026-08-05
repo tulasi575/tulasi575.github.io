@@ -6,6 +6,66 @@
 (() => {
   'use strict';
 
+  /* ---------- field deployment boot sequence ---------- */
+  const boot = document.getElementById('boot');
+  if (boot) {
+    const log = document.getElementById('bootLog');
+    const enterBtn = document.getElementById('bootEnter');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const seen = (() => { try { return sessionStorage.getItem('booted'); } catch { return null; } })();
+
+    let dismissed = false;
+    const dismiss = () => {
+      if (dismissed) return;
+      dismissed = true;
+      try { sessionStorage.setItem('booted', '1'); } catch {}
+      boot.classList.add('is-done');
+      document.body.classList.remove('boot-lock');
+      window.removeEventListener('keydown', dismiss);
+      setTimeout(() => boot.remove(), 720);
+    };
+
+    if (reduce || seen) {
+      boot.remove();
+    } else {
+      // deployment log — real work, in field-console voice
+      const lines = [
+        '<span class="tag">[ ok ]</span> uplink to field site · <span class="val">unison health</span>',
+        '<span class="tag">[ ok ]</span> mount /data · <span class="val">20k records</span>',
+        '<span class="tag">[ ok ]</span> load models · randomforest · xgboost · elasticnet',
+        '<span class="tag">[ ok ]</span> deploy agents · <span class="val">claude · gpt · gemini</span>',
+        '<span class="tag">[ ok ]</span> power bi service · <span class="val">5 dashboards online</span>',
+        '<span class="tag">[ ok ]</span> alert daemon · &minus;10% energy · +20% asset life',
+        '<span class="tag-warn">[ $$ ]</span> savings engine · <span class="val">~$180k identified</span>',
+        '<span class="tag">[ ok ]</span> deployment nominal',
+      ];
+
+      document.body.classList.add('boot-lock');
+      window.addEventListener('keydown', dismiss);
+      boot.addEventListener('click', dismiss);
+      enterBtn?.addEventListener('click', dismiss);
+
+      let i = 0;
+      const step = () => {
+        if (i >= lines.length) {
+          boot.classList.add('is-ready');
+          setTimeout(() => { if (!dismissed) dismiss(); }, 4200); // auto-continue hook
+          return;
+        }
+        const el = document.createElement('div');
+        el.className = 'boot-line';
+        el.innerHTML = lines[i];
+        log?.appendChild(el);
+        i += 1;
+        setTimeout(step, 240);
+      };
+      setTimeout(step, 260);
+
+      // safety: never trap the visitor if something stalls
+      setTimeout(dismiss, 9000);
+    }
+  }
+
   /* ---------- custom cursor ---------- */
   const cursor = document.querySelector('.cursor-dot');
   if (cursor && window.matchMedia('(min-width: 901px)').matches) {
