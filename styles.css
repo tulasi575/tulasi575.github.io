@@ -16,7 +16,7 @@
   --hairline:   rgba(33, 33, 33, 0.12);
   --hairline-strong: rgba(33, 33, 33, 0.20);
 
-  --tangerine:  #1976d2;   /* Jupyter interactive blue (links, run bar) */
+  --tangerine:  #f37626;   /* Jupyter brand orange (links, run bar, accents) */
   --teal:       #12b5a6;   /* plot series */
   --lavender:   #7c5cfc;   /* plot series */
   --rose:       #a855f7;   /* plot series */
@@ -315,7 +315,7 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: center;
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--tangerine), var(--rose));
+  background: linear-gradient(135deg, #f37626, #616161);
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 700;
@@ -1528,7 +1528,7 @@ section { position: relative; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--tangerine), var(--rose));
+  background: linear-gradient(135deg, #f37626, #616161);
   opacity: 0;
   transition: opacity 0.4s;
   z-index: -1;
