@@ -6,64 +6,56 @@
 (() => {
   'use strict';
 
-  /* ---------- field deployment boot sequence ---------- */
-  const boot = document.getElementById('boot');
-  if (boot) {
-    const log = document.getElementById('bootLog');
-    const enterBtn = document.getElementById('bootEnter');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const seen = (() => { try { return sessionStorage.getItem('booted'); } catch { return null; } })();
+  /* ---------- jupyter notebook cells ---------- */
+  const cells = [...document.querySelectorAll('[data-cell]')];
+  if (cells.length) {
+    document.body.classList.add('nb-ready');
+    const kernel = document.querySelector('.nb-kernel');
+    const kernelState = document.querySelector('.nb-kernel-state');
+    let execCount = 0;
 
-    let dismissed = false;
-    const dismiss = () => {
-      if (dismissed) return;
-      dismissed = true;
-      try { sessionStorage.setItem('booted', '1'); } catch {}
-      boot.classList.add('is-done');
-      document.body.classList.remove('boot-lock');
-      window.removeEventListener('keydown', dismiss);
-      setTimeout(() => boot.remove(), 720);
-    };
+    const runCell = (cell, fast) => new Promise((resolve) => {
+      if (cell.dataset.run === '1') return resolve();
+      cell.dataset.run = '1';
+      const btn = cell.querySelector('.cell-run');
+      const prompt = cell.querySelector('.cell-prompt');
+      const outPrompt = cell.querySelector('.out-prompt');
+      const out = cell.querySelector('.cell-out');
 
-    if (reduce || seen) {
-      boot.remove();
-    } else {
-      // deployment log — real work, in field-console voice
-      const lines = [
-        '<span class="tag">[ ok ]</span> uplink to field site · <span class="val">unison health</span>',
-        '<span class="tag">[ ok ]</span> mount /data · <span class="val">20k records</span>',
-        '<span class="tag">[ ok ]</span> load models · randomforest · xgboost · elasticnet',
-        '<span class="tag">[ ok ]</span> deploy agents · <span class="val">claude · gpt · gemini</span>',
-        '<span class="tag">[ ok ]</span> power bi service · <span class="val">5 dashboards online</span>',
-        '<span class="tag">[ ok ]</span> alert daemon · &minus;10% energy · +20% asset life',
-        '<span class="tag-warn">[ $$ ]</span> savings engine · <span class="val">~$180k identified</span>',
-        '<span class="tag">[ ok ]</span> deployment nominal',
-      ];
+      btn.classList.remove('hint');
+      btn.classList.add('busy');
+      prompt.textContent = 'In [*]:';
+      kernel?.classList.add('busy');
+      if (kernelState) kernelState.textContent = 'running';
 
-      document.body.classList.add('boot-lock');
-      window.addEventListener('keydown', dismiss);
-      boot.addEventListener('click', dismiss);
-      enterBtn?.addEventListener('click', dismiss);
+      setTimeout(() => {
+        execCount += 1;
+        prompt.textContent = `In [${execCount}]:`;
+        if (outPrompt) outPrompt.textContent = `Out[${execCount}]:`;
+        btn.classList.remove('busy');
+        btn.classList.add('done');
+        out?.classList.add('is-run');
+        cell.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
+        kernel?.classList.remove('busy');
+        if (kernelState) kernelState.textContent = 'idle';
+        resolve();
+      }, fast ? 260 : 560); // ponytail: fake compute delay — cosmetic, tune freely
+    });
 
-      let i = 0;
-      const step = () => {
-        if (i >= lines.length) {
-          boot.classList.add('is-ready');
-          setTimeout(() => { if (!dismissed) dismiss(); }, 4200); // auto-continue hook
-          return;
-        }
-        const el = document.createElement('div');
-        el.className = 'boot-line';
-        el.innerHTML = lines[i];
-        log?.appendChild(el);
-        i += 1;
-        setTimeout(step, 240);
-      };
-      setTimeout(step, 260);
+    cells.forEach((c) => c.querySelector('.cell-run').addEventListener('click', () => runCell(c)));
+    cells[0]?.querySelector('.cell-run').classList.add('hint');
 
-      // safety: never trap the visitor if something stalls
-      setTimeout(dismiss, 9000);
-    }
+    document.querySelector('.nb-runall')?.addEventListener('click', async () => {
+      for (const c of cells) { await runCell(c, true); await new Promise((r) => setTimeout(r, 130)); }
+    });
+
+    // clicking a nav link executes its target cell on the way there
+    document.querySelectorAll('.nav-links a').forEach((a) => {
+      a.addEventListener('click', () => {
+        const target = document.getElementById(a.getAttribute('href').slice(1));
+        if (target?.hasAttribute('data-cell')) runCell(target);
+      });
+    });
   }
 
   /* ---------- custom cursor ---------- */
@@ -110,29 +102,15 @@
     reveals.forEach((el) => el.classList.add('is-in'));
   }
 
-  /* ---------- nav hide on scroll down, show on scroll up ---------- */
+  /* ---------- nav stays put; subtle solidify on scroll ---------- */
   const nav = document.querySelector('.nav');
-  let lastY = window.scrollY;
   let ticking = false;
-
   const onScroll = () => {
-    const y = window.scrollY;
-    if (Math.abs(y - lastY) < 6) { ticking = false; return; }
-
-    if (y > lastY && y > 200) {
-      nav?.classList.add('is-hidden');
-    } else {
-      nav?.classList.remove('is-hidden');
-    }
-    lastY = y;
+    nav?.classList.toggle('is-scrolled', window.scrollY > 40);
     ticking = false;
   };
-
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(onScroll);
-      ticking = true;
-    }
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
   }, { passive: true });
 
   /* ---------- mini-card spotlight follow ---------- */

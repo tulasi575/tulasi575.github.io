@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gnana Tulasi Makineni — Data Scientist & BI Developer. 5+ years building machine learning models, Power BI dashboards, and analytics for manufacturing, insurance, and research teams." />
-  <meta name="theme-color" content="#0a0d14" />
+  <meta name="theme-color" content="#fbfaf7" />
   <meta property="og:title" content="Gnana Tulasi Makineni — Data Scientist" />
   <meta property="og:description" content="Data Scientist & BI Developer. I turn data into decisions teams can act on." />
   <meta property="og:type" content="website" />
@@ -13,26 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Outfit:wght@200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <noscript><style>.boot{display:none!important}</style></noscript>
 </head>
 <body>
-
-  <!-- ============ FIELD DEPLOYMENT BOOT SEQUENCE ============ -->
-  <div class="boot" id="boot" role="dialog" aria-label="Deployment console">
-    <div class="boot-frame">
-      <div class="boot-bar">
-        <span class="boot-dot"></span>
-        <span class="boot-id">fde-console · makineni.field.ops</span>
-        <span class="boot-ver">v2026.08</span>
-      </div>
-      <div class="boot-log" id="bootLog" aria-hidden="true"></div>
-      <button class="boot-enter" id="bootEnter" type="button">
-        <span class="boot-caret">▸</span>
-        <span class="boot-enter-text">deployment ready — enter the field</span>
-        <span class="boot-hint">[ press any key ]</span>
-      </button>
-    </div>
-  </div>
 
   <!-- atmospheric layers -->
   <div class="atmosphere" aria-hidden="true">
@@ -102,6 +84,18 @@
 
   <main id="top">
 
+    <!-- ============ NOTEBOOK TOOLBAR ============ -->
+    <div class="nb-toolbar" aria-hidden="true">
+      <div class="nb-file"><span class="nb-ico">▤</span> makineni_portfolio.ipynb</div>
+      <div class="nb-tools">
+        <button class="nb-runall" type="button">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Run All
+        </button>
+        <span class="nb-kernel"><span class="nb-kernel-dot"></span> Python 3 · <span class="nb-kernel-state">idle</span></span>
+      </div>
+    </div>
+
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero-meta">
@@ -140,22 +134,34 @@
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
 
-      <div class="hero-stats" data-reveal>
-        <div class="stat">
-          <div class="stat-num">5<span>+</span></div>
-          <div class="stat-label">Years building<br/>data systems</div>
+      <div class="nb-cell" data-cell data-reveal>
+        <div class="cell-bar">
+          <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
+          <code class="cell-code"><span class="k-var">df</span>.summary()  <span class="k-com"># headline metrics</span></code>
         </div>
-        <div class="stat">
-          <div class="stat-num">10<span>+</span></div>
-          <div class="stat-label">Production dashboards<br/>shipped</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Industries served:<br/>manufacturing, insurance, edu</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">20<span>K</span></div>
-          <div class="stat-label">NHANES records modeled<br/>for biological-age ML</div>
+        <div class="cell-out" data-out>
+          <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
+          <div class="out-body">
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-num">5<span>+</span></div>
+                <div class="stat-label">Years building<br/>data systems</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">10<span>+</span></div>
+                <div class="stat-label">Production dashboards<br/>shipped</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Industries served:<br/>manufacturing, insurance, edu</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">20<span>K</span></div>
+                <div class="stat-label">NHANES records modeled<br/>for biological-age ML</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -233,7 +239,15 @@
     </section>
 
     <!-- ============ WORK / FEATURED PROJECTS ============ -->
-    <section class="work" id="work">
+    <section class="work nb-cell" id="work" data-cell>
+      <div class="cell-bar">
+        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
+        <code class="cell-code">portfolio.selected_work(<span class="k-var">measurable</span>=<span class="k-bool">True</span>)</code>
+      </div>
+      <div class="cell-out" data-out>
+        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
+        <div class="out-body">
       <div class="section-label">
         <span class="label-num">02</span>
         <span class="label-text">SELECTED WORK</span>
@@ -288,17 +302,17 @@
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <linearGradient id="cgrad" x1="0" y1="1" x2="1" y2="0">
-                  <stop offset="0" stop-color="#0dffc3"/>
-                  <stop offset="1" stop-color="#ff5e94"/>
+                  <stop offset="0" stop-color="#12b5a6"/>
+                  <stop offset="1" stop-color="#8b5cf6"/>
                 </linearGradient>
               </defs>
               <g>
                 <path d="M20 160 L60 110 L100 130 L140 80 L180 60" fill="none" stroke="url(#cgrad)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 170 L60 140 L100 150 L140 120 L180 100" fill="none" stroke="rgba(245,240,232,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
-                <line x1="20" y1="180" x2="180" y2="180" stroke="rgba(245,240,232,0.2)"/>
-                <line x1="20" y1="20" x2="20" y2="180" stroke="rgba(245,240,232,0.2)"/>
+                <path d="M20 170 L60 140 L100 150 L140 120 L180 100" fill="none" stroke="rgba(26,29,36,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="20" y1="180" x2="180" y2="180" stroke="rgba(26,29,36,0.2)"/>
+                <line x1="20" y1="20" x2="20" y2="180" stroke="rgba(26,29,36,0.2)"/>
               </g>
-              <g fill="#0dffc3">
+              <g fill="#12b5a6">
                 <circle cx="20" cy="160" r="2.5"/>
                 <circle cx="60" cy="110" r="2.5"/>
                 <circle cx="100" cy="130" r="2.5"/>
@@ -350,26 +364,26 @@
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <linearGradient id="kpigrad-a" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#0dffc3"/>
-                  <stop offset="1" stop-color="#d4a574"/>
+                  <stop offset="0" stop-color="#12b5a6"/>
+                  <stop offset="1" stop-color="#2f6fed"/>
                 </linearGradient>
                 <linearGradient id="kpigrad-b" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#ff6b35"/>
-                  <stop offset="1" stop-color="#ffc463"/>
+                  <stop offset="0" stop-color="#7c5cfc"/>
+                  <stop offset="1" stop-color="#e8a33d"/>
                 </linearGradient>
               </defs>
               <!-- KPI tiles -->
               <g>
-                <rect x="20" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
-                <text x="28" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#0dffc3" letter-spacing="0.5">YIELD</text>
+                <rect x="20" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
+                <text x="28" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#12b5a6" letter-spacing="0.5">YIELD</text>
                 <text x="28" y="58" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">98.4%</text>
 
-                <rect x="104" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
-                <text x="112" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#ff6b35" letter-spacing="0.5">OEE</text>
+                <rect x="104" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
+                <text x="112" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#7c5cfc" letter-spacing="0.5">OEE</text>
                 <text x="112" y="58" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">87.2</text>
 
-                <rect x="20" y="76" width="160" height="48" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
-                <text x="28" y="92" font-family="JetBrains Mono, monospace" font-size="6" fill="rgba(245,240,232,0.6)" letter-spacing="0.5">THROUGHPUT · 24H</text>
+                <rect x="20" y="76" width="160" height="48" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
+                <text x="28" y="92" font-family="JetBrains Mono, monospace" font-size="6" fill="rgba(26,29,36,0.6)" letter-spacing="0.5">THROUGHPUT · 24H</text>
                 <!-- mini bar chart -->
                 <g fill="url(#kpigrad-a)">
                   <rect x="28"  y="106" width="6" height="14"/>
@@ -389,16 +403,16 @@
                   <rect x="168" y="96"  width="6" height="24"/>
                 </g>
 
-                <rect x="20" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
-                <text x="28" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#d4a574" letter-spacing="0.5">DOWNTIME</text>
+                <rect x="20" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
+                <text x="28" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#2f6fed" letter-spacing="0.5">DOWNTIME</text>
                 <text x="28" y="168" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">2.1h</text>
 
-                <rect x="104" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(245,240,232,0.18)"/>
-                <text x="112" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#ffc463" letter-spacing="0.5">QUALITY</text>
+                <rect x="104" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
+                <text x="112" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#e8a33d" letter-spacing="0.5">QUALITY</text>
                 <text x="112" y="168" font-family="Fraunces, serif" font-size="16" fill="#f5f0e8" font-style="italic">A+</text>
               </g>
               <!-- live indicator -->
-              <circle cx="173" cy="29" r="2" fill="#0dffc3">
+              <circle cx="173" cy="29" r="2" fill="#12b5a6">
                 <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
               </circle>
             </svg>
@@ -445,8 +459,8 @@
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <linearGradient id="bgrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#d4a574"/>
-                  <stop offset="1" stop-color="#0dffc3"/>
+                  <stop offset="0" stop-color="#2f6fed"/>
+                  <stop offset="1" stop-color="#12b5a6"/>
                 </linearGradient>
               </defs>
               <g fill="url(#bgrad)">
@@ -458,11 +472,11 @@
                 <rect x="20" y="134" width="44"  height="10" rx="2" opacity="0.45"/>
                 <rect x="20" y="154" width="28"  height="10" rx="2" opacity="0.35"/>
               </g>
-              <line x1="20" y1="22" x2="20" y2="170" stroke="rgba(245,240,232,0.25)"/>
-              <line x1="20" y1="170" x2="180" y2="170" stroke="rgba(245,240,232,0.25)"/>
-              <text x="170" y="44" font-family="JetBrains Mono, monospace" font-size="9" fill="#0dffc3" text-anchor="end">BMI</text>
-              <text x="146" y="64" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(245,240,232,0.6)" text-anchor="end">SLEEP</text>
-              <text x="124" y="84" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(245,240,232,0.6)" text-anchor="end">BP</text>
+              <line x1="20" y1="22" x2="20" y2="170" stroke="rgba(26,29,36,0.25)"/>
+              <line x1="20" y1="170" x2="180" y2="170" stroke="rgba(26,29,36,0.25)"/>
+              <text x="170" y="44" font-family="JetBrains Mono, monospace" font-size="9" fill="#12b5a6" text-anchor="end">BMI</text>
+              <text x="146" y="64" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(26,29,36,0.6)" text-anchor="end">SLEEP</text>
+              <text x="124" y="84" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(26,29,36,0.6)" text-anchor="end">BP</text>
             </svg>
           </div>
         </article>
@@ -524,10 +538,20 @@
 
         </div>
       </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section class="experience" id="experience">
+    <section class="experience nb-cell" id="experience" data-cell>
+      <div class="cell-bar">
+        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
+        <code class="cell-code">portfolio.experience.sort_values(<span class="k-str">'date'</span>, ascending=<span class="k-bool">False</span>)</code>
+      </div>
+      <div class="cell-out" data-out>
+        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
+        <div class="out-body">
       <div class="section-label">
         <span class="label-num">03</span>
         <span class="label-text">EXPERIENCE</span>
@@ -628,10 +652,20 @@
         </div>
 
       </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ SKILLS ============ -->
-    <section class="skills" id="skills">
+    <section class="skills nb-cell" id="skills" data-cell>
+      <div class="cell-bar">
+        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
+        <code class="cell-code">portfolio.skills.value_counts()</code>
+      </div>
+      <div class="cell-out" data-out>
+        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
+        <div class="out-body">
       <div class="section-label">
         <span class="label-num">04</span>
         <span class="label-text">CAPABILITIES</span>
@@ -692,6 +726,8 @@
           <div class="chips">
             <span>Generative AI</span><span>Natural language processing</span><span>Structured data extraction</span><span>Document automation</span>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </section>
