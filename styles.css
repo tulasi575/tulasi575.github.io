@@ -6,21 +6,28 @@
    ========================================================= */
 
 :root {
-  /* color — light paper + dark ink */
-  --ink:        #fbfaf7;   /* page paper */
-  --ink-2:      #f4f2ec;   /* subtle raised fill */
-  --ink-3:      #eae7dd;   /* deeper fill / borders */
-  --cream:      #1a1d24;   /* primary ink text */
-  --cream-dim:  rgba(26, 29, 36, 0.70);
-  --cream-mute: rgba(26, 29, 36, 0.48);
-  --hairline:   rgba(26, 29, 36, 0.12);
-  --hairline-strong: rgba(26, 29, 36, 0.22);
+  /* color — authentic Jupyter notebook */
+  --ink:        #ffffff;   /* notebook white */
+  --ink-2:      #f7f7f7;   /* code-cell input background */
+  --ink-3:      #ededed;   /* borders / deeper fill */
+  --cream:      #212121;   /* text */
+  --cream-dim:  rgba(33, 33, 33, 0.72);
+  --cream-mute: rgba(33, 33, 33, 0.46);
+  --hairline:   rgba(33, 33, 33, 0.12);
+  --hairline-strong: rgba(33, 33, 33, 0.20);
 
-  --tangerine:  #2f6fed;   /* primary accent — analytic blue */
-  --teal:       #12b5a6;   /* teal — 2nd series */
-  --lavender:   #7c5cfc;   /* violet — 3rd series */
-  --rose:       #a855f7;   /* violet-magenta — gradient pair */
-  --amber:      #e8a33d;   /* amber — highlight / status */
+  --tangerine:  #1976d2;   /* Jupyter interactive blue (links, run bar) */
+  --teal:       #12b5a6;   /* plot series */
+  --lavender:   #7c5cfc;   /* plot series */
+  --rose:       #a855f7;   /* plot series */
+  --amber:      #e8a33d;   /* plot series / status */
+
+  /* pygments code + notebook prompt colors */
+  --jp-in:      #303f9f;   /* In [ ]: navy */
+  --jp-out:     #d84315;   /* Out[ ]: rust */
+  --jp-string:  #ba2121;   /* string literals */
+  --jp-keyword: #008000;   /* True/False, keywords */
+  --jp-comment: #408080;   /* comments */
 
   /* type */
   --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
@@ -30,7 +37,7 @@
   /* layout */
   --max-w: 1320px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --section-pad: clamp(5rem, 11vw, 9rem);
+  --section-pad: clamp(1.75rem, 3.5vw, 3rem);
 
   /* motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -237,25 +244,9 @@ button { font-family: inherit; cursor: pointer; }
   pointer-events: none;
 }
 
-.grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(26,29,36,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(26,29,36,0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 1;
-  mask-image: linear-gradient(to bottom, black, black 68%, transparent);
-}
-
-.noise {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.02 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  opacity: 0.5;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
+/* Jupyter is plain white — grid & grain retired */
+.grid-overlay,
+.noise { display: none; }
 
 /* ---------- ticker ---------- */
 .ticker {
@@ -425,7 +416,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- hero ---------- */
 .hero {
   position: relative;
-  padding: 3rem var(--gutter) var(--section-pad);
+  padding: 2.5rem var(--gutter) 1.5rem;
   max-width: var(--max-w);
   margin: 0 auto;
   min-height: auto;
@@ -643,10 +634,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .scroll-cue {
+  display: none; /* notebook flows cell-to-cell; no scroll cue */
   position: absolute;
   bottom: 4rem;
   right: var(--gutter);
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.85rem;
@@ -1892,7 +1883,7 @@ section { position: relative; }
 .nb-kernel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
 .nb-kernel.busy .nb-kernel-dot { background: var(--amber); animation: pulse 1s ease-in-out infinite; }
 
-.nb-cell { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.nb-cell { padding-top: 1.75rem; padding-bottom: 1.75rem; }
 
 /* markdown cells (rendered prose — About, Education, Contact, title) */
 .md-bar {
@@ -1934,15 +1925,15 @@ section { position: relative; }
   0%, 100% { box-shadow: 0 0 0 0 rgba(47,111,237,0.45); }
   50%      { box-shadow: 0 0 0 7px rgba(47,111,237,0); }
 }
-.cell-prompt { color: var(--tangerine); font-size: 0.8rem; white-space: pre; flex-shrink: 0; }
-.cell-code { font-size: 0.82rem; color: var(--cream); white-space: pre; }
-.k-var { color: #7c5cfc; }
-.k-str { color: #12b5a6; }
-.k-bool { color: #e8a33d; }
-.k-com { color: var(--cream-mute); font-style: italic; }
+.cell-prompt { color: var(--jp-in); font-size: 0.8rem; white-space: pre; flex-shrink: 0; }
+.cell-code { font-size: 0.82rem; color: #000; white-space: pre; }
+.k-var { color: #000; }
+.k-str { color: var(--jp-string); }
+.k-bool { color: var(--jp-keyword); font-weight: 700; }
+.k-com { color: var(--jp-comment); font-style: italic; }
 
 .cell-out { display: flex; gap: 0.7rem; padding-top: 0.25rem; }
-.out-prompt { font-family: var(--font-mono); font-size: 0.8rem; color: #c0396e; flex-shrink: 0; padding-top: 0.15rem; white-space: pre; }
+.out-prompt { font-family: var(--font-mono); font-size: 0.8rem; color: var(--jp-out); flex-shrink: 0; padding-top: 0.15rem; white-space: pre; }
 .out-body { flex: 1; min-width: 0; }
 
 /* JS-gated: outputs collapse only when the kernel is live, so no-JS shows all */
