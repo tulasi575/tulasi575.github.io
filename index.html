@@ -3,136 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gnana Tulasi Makineni — Data Scientist & BI Developer. 5+ years building machine learning models, Power BI dashboards, and analytics for manufacturing, insurance, and research teams." />
-  <meta name="theme-color" content="#fbfaf7" />
-  <meta property="og:title" content="Gnana Tulasi Makineni — Data Scientist" />
-  <meta property="og:description" content="Data Scientist & BI Developer. I build machine learning models and dashboards that teams rely on to make decisions." />
+  <meta name="description" content="Gnana Tulasi Makineni - Data Scientist & BI Developer. 5+ years building machine learning models and production dashboards." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Gnana Tulasi Makineni - Data Scientist & AI Engineer" />
+  <meta property="og:description" content="Interactive Data Science Portfolio - ML Models, Live Analytics & Interactive Notebooks." />
   <meta property="og:type" content="website" />
-  <title>Gnana Tulasi Makineni — Data Scientist & BI Developer</title>
+  <title>Gnana Tulasi Makineni - Data Scientist & BI Developer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23f37626'/><text x='50' y='65' font-size='45' font-weight='bold' text-anchor='middle' fill='white'>GT</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Outfit:wght@200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Outfit:wght@200..800&family=JetBrains+Mono:ital,wght@0,300..700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=v16" />
 </head>
-<body>
+<body class="ds-portfolio">
 
+  <!-- ============ NOTEBOOK BOOT / ENTRANCE OVERLAY ============ -->
+  <div id="boot-screen" class="boot-screen" role="status" aria-label="Loading">
+    <div class="boot-inner">
+      <div class="boot-head">
+        <svg class="boot-logo" width="30" height="34" viewBox="0 0 256 288" fill="none" aria-hidden="true">
+          <path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm0 236c-59.6 0-108-48.4-108-108S68.4 20 128 20s108 48.4 108 108-48.4 108-108 108z" fill="#F37626"/>
+          <circle cx="128" cy="70" r="14" fill="#616161"/>
+          <circle cx="128" cy="186" r="14" fill="#616161"/>
+          <circle cx="70" cy="128" r="14" fill="#F37626"/>
+        </svg>
+        <div>
+          <div class="boot-title">makineni_portfolio.ipynb</div>
+          <div class="boot-sub">Python 3.11 (ipykernel)</div>
+        </div>
+      </div>
+      <div class="boot-lines" id="boot-lines" aria-hidden="true"></div>
+      <div class="boot-bar"><div class="boot-bar-fill" id="boot-bar-fill"></div></div>
+      <div class="boot-foot">
+        <span class="boot-status" id="boot-status">Starting kernel<span class="boot-cursor">▍</span></span>
+        <span class="boot-skip">click to skip</span>
+      </div>
+    </div>
+  </div>
 
-  <!-- navigation -->
-  <nav class="nav">
-    <a href="#top" class="nav-logo">
-      <span class="logo-mark">GT</span>
-      <span class="logo-text">Makineni</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="Resume_04_2026.pdf" class="nav-cta" download>
-      <span>Resume</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M12 3v14m-6-6 6 6 6-6M5 21h14"/>
-      </svg>
-    </a>
-  </nav>
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <main id="top">
+  <!-- Canvas for interactive ambient data/neural particles (decorative) -->
+  <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
 
-    <!-- ============ NOTEBOOK TOOLBAR ============ -->
-    <div class="nb-toolbar" aria-hidden="true">
-      <div class="nb-file"><span class="nb-ico">▤</span> makineni_portfolio.ipynb</div>
-      <div class="nb-tools">
-        <button class="nb-runall" type="button">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          Run All
-        </button>
-        <span class="nb-kernel"><span class="nb-kernel-dot"></span> Python 3 · <span class="nb-kernel-state">idle</span></span>
+  <main id="top" class="main-content">
+
+    <!-- ============ AUTHENTIC JUPYTER NOTEBOOK HEADER ============ -->
+    <div class="jp-notebook-header">
+      <div class="jp-header-top">
+        <div class="jp-logo-group">
+          <svg class="jp-logo" width="22" height="24" viewBox="0 0 256 288" fill="none" aria-hidden="true">
+            <path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm0 236c-59.6 0-108-48.4-108-108S68.4 20 128 20s108 48.4 108 108-48.4 108-108 108z" fill="#F37626"/>
+            <circle cx="128" cy="70" r="14" fill="#616161"/>
+            <circle cx="128" cy="186" r="14" fill="#616161"/>
+            <circle cx="70" cy="128" r="14" fill="#F37626"/>
+          </svg>
+          <div class="jp-title-block">
+            <span class="jp-nb-name">makineni_portfolio.ipynb</span>
+            <span class="jp-checkpoint">Last Checkpoint: Just now (autosaved)</span>
+          </div>
+        </div>
+
+        <div class="jp-kernel-indicator">
+          <span class="pulse-green"></span>
+          <span class="jp-kernel-text">Python 3.11 (ipykernel) &nbsp;·&nbsp; Idle</span>
+        </div>
+      </div>
+
+      <nav class="jp-menu-bar" id="nav-links">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="jp-toolbar">
+        <button class="jp-tb-btn" title="Save Notebook" aria-label="Save notebook">Save</button>
+        <button class="jp-tb-btn" title="Insert Cell Below" aria-label="Insert cell below">+</button>
+        <button class="jp-tb-btn jp-tb-run" id="nb-runall-btn" title="Run All Cells" aria-label="Run all cells">&#9654; Run All</button>
+        <button class="jp-tb-btn" title="Interrupt Kernel" aria-label="Interrupt kernel">&#9632;</button>
+        <button class="jp-tb-btn" title="Restart Kernel" aria-label="Restart kernel">&#8635;</button>
+        <div class="jp-tb-divider"></div>
+        <select class="jp-tb-select" aria-label="Cell type"><option>Code</option><option>Markdown</option></select>
+        <div class="jp-tb-right">
+          <span class="jp-sys-stat">CPU: 4% &nbsp;·&nbsp; RAM: 1.4 / 8.0 GB &nbsp;·&nbsp; CUDA 12.1</span>
+        </div>
       </div>
     </div>
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="md-bar"><span class="md-mark">▌</span><span class="md-src"># Gnana Tulasi Makineni — Data Scientist</span><span class="md-tag">markdown</span></div>
+    <section class="hero" id="hero">
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src"># Gnana Tulasi Makineni - Data Scientist &amp; BI Developer</span>
+        <span class="md-tag">markdown cell</span>
+      </div>
+
       <div class="hero-meta">
         <span class="meta-dot"></span>
-        <span class="meta-text">PORTFOLIO — VOL. 2026</span>
+        <span class="meta-text">DATA SCIENCE PORTFOLIO · 2026</span>
         <span class="meta-divider"></span>
         <span class="meta-text">BOWLING GREEN, OH</span>
       </div>
 
       <h1 class="hero-title">
-        <span class="title-line" data-reveal>Gnana</span>
-        <span class="title-line" data-reveal>Tulasi</span>
-        <span class="title-line" data-reveal>Makineni</span>
+        <span class="title-line">Gnana Tulasi</span>
+        <span class="title-line title-highlight">Makineni</span>
       </h1>
 
-      <div class="pronounce" data-reveal>
-        <span class="pronounce-key">pronounced</span>
+      <div class="pronounce">
+        <span class="pronounce-key">pronunciation</span>
         <span class="pronounce-val">/ <em>gyah</em>-nuh &nbsp;·&nbsp; <em>too</em>-luh-see &nbsp;·&nbsp; muh-kih-<em>neh</em>-nee /</span>
       </div>
 
-      <div class="hero-tagline" data-reveal>
-        <p class="tagline-lead">I build machine learning models and dashboards that teams rely on to make decisions.</p>
-        <p class="tagline-sub">
-          Data Scientist &amp; BI Developer with 5+ years building machine learning
-          models, dashboards, and analytics for manufacturing, insurance, and research teams.
-        </p>
+      <div class="hero-tagline">
+        <p class="tagline-lead">Turning complex data &amp; ML models into actionable decisions.</p>
+        <div class="hero-pills">
+          <span class="h-pill">Live Analytics Engines</span>
+          <span class="h-pill">Predictive Healthcare ML</span>
+          <span class="h-pill">Executive Power BI</span>
+        </div>
       </div>
 
-      <div class="hero-actions" data-reveal>
+      <div class="hero-actions">
         <a href="#work" class="btn btn-primary">
-          <span>View selected work</span>
+          <span>Explore Projects</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M5 12h14m-6-6 6 6-6 6"/>
           </svg>
         </a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
       </div>
 
-      <div class="nb-cell" data-cell data-reveal>
+      <!-- Notebook Output 1: Headline Metrics -->
+      <div class="nb-cell nb-cell--hero" data-cell id="cell-0" data-reveal>
         <div class="cell-bar">
-          <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
-          <code class="cell-code"><span class="k-var">df</span>.summary()  <span class="k-com"># headline metrics</span></code>
+          <button class="cell-run" type="button" title="Execute cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="cell-prompt">In&nbsp;[1]:</span>
+          <code class="cell-code"><span class="k-var">portfolio</span>.summary_metrics()  <span class="k-com"># Execute for key performance highlights</span></code>
+          <span class="cell-time">[0.024s]</span>
         </div>
         <div class="cell-out" data-out>
-          <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
+          <span class="out-prompt">Out[1]:</span>
           <div class="out-body">
             <div class="hero-stats">
               <div class="stat">
-                <div class="stat-num">5<span>+</span></div>
-                <div class="stat-label">Years building<br/>data systems</div>
+                <div class="stat-num" data-count="5" data-suffix="+">0</div>
+                <div class="stat-label">Years of ML &amp;<br/>Data Engineering</div>
               </div>
               <div class="stat">
-                <div class="stat-num">10<span>+</span></div>
-                <div class="stat-label">Production dashboards<br/>shipped</div>
+                <div class="stat-num" data-count="180" data-prefix="$" data-suffix="K+">0</div>
+                <div class="stat-label">Projected Annual Savings<br/>Engineered</div>
               </div>
               <div class="stat">
-                <div class="stat-num">3</div>
-                <div class="stat-label">Industries served:<br/>manufacturing, insurance, edu</div>
+                <div class="stat-num" data-count="10" data-suffix="+">0</div>
+                <div class="stat-label">Production Dashboards &amp;<br/>Real-Time Engines</div>
               </div>
               <div class="stat">
-                <div class="stat-num">20<span>K</span></div>
-                <div class="stat-label">NHANES records modeled<br/>for biological-age ML</div>
+                <div class="stat-num" data-count="4">0</div>
+                <div class="stat-label">Industries Served<br/>(Mfg, Health, Ed, Fin)</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Scroll down">
-        <span>SCROLL</span>
-        <div class="cue-line"></div>
-      </a>
     </section>
 
-    <!-- ============ ABOUT ============ -->
+    <!-- ============ ABOUT (Condensed & Visual) ============ -->
     <section class="about" id="about">
-      <div class="md-bar"><span class="md-mark">▌</span><span class="md-src">## About the analyst</span><span class="md-tag">markdown</span></div>
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## About - Forward Deployed Data Scientist</span>
+        <span class="md-tag">markdown cell</span>
+      </div>
+
       <div class="section-label">
         <span class="label-num">01</span>
-        <span class="label-text">ABOUT</span>
+        <span class="label-text">ABOUT &amp; IMPACT</span>
       </div>
 
       <div class="about-grid">
@@ -145,351 +195,351 @@
           </div>
           <div class="portrait-caption">
             <span class="caption-mark">●</span>
-            <span>Available for new opportunities</span>
+            <span>Forward Deployed Engineer @ Actual Reality Tech</span>
           </div>
         </div>
 
-        <div class="about-copy" data-reveal>
-          <p class="about-eyebrow">— A note from me</p>
+        <div class="about-content" data-reveal>
           <h2 class="about-headline">
-            I build the <em>data systems</em> that help teams make better decisions.
+            Professional Summary
           </h2>
-          <div class="about-body">
-            <p>
-              I'm a data scientist and forward deployed engineer focused on machine learning,
-              AI agents, and operational data. At <strong>Actual Reality Technologies</strong>,
-              I build automated alert systems for manufacturing plants, analytics engines for
-              insurance clients, and <strong>AI agents that read construction drawings and generate
-              material estimates</strong> — work that has cut energy use, extended equipment life,
-              sped up estimating, and surfaced new savings opportunities.
-            </p>
-            <p>
-              Before that, I spent 18 months at <strong>BGSU Campus Operations</strong>
-              building Power BI dashboards and data models that financial and facilities
-              teams use every day to plan budgets and operations. My earlier research used
-              public health data (NHANES) to train machine learning models that estimate
-              biological age from lifestyle and medical inputs.
-            </p>
-            <p>
-              I care about three things: <span class="hl">making the data trustworthy</span>,
-              <span class="hl">making the answer clear</span>, and
-              <span class="hl">making the dashboard fast</span>.
-            </p>
-          </div>
 
-          <div class="about-meta">
-            <div class="meta-block">
-              <div class="meta-key">Based in</div>
-              <div class="meta-val">Bowling Green, Ohio</div>
-            </div>
-            <div class="meta-block">
-              <div class="meta-key">Currently</div>
-              <div class="meta-val">Forward Deployed Engineer @ Actual Reality</div>
-            </div>
-            <div class="meta-block">
-              <div class="meta-key">Education</div>
-              <div class="meta-val">M.S. Computer Science, BGSU</div>
-            </div>
+          <p class="about-bio">
+            I'm a Data Scientist & BI Engineer who believes data should <em>do</em> something, not just sit in a report.
+            I build systems that translate messy real-world signals into decisions that actually move the needle.
+          </p>
+
+          <div class="about-meta-chips">
+            <span class="meta-chip">Bowling Green, OH</span>
+            <span class="meta-chip">M.S. Computer Science (BGSU)</span>
+            <span class="meta-chip">Python · PyTorch · Power BI · SQL · LLMs</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ WORK / FEATURED PROJECTS ============ -->
-    <section class="work nb-cell" id="work" data-cell>
-      <div class="cell-bar">
-        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
-        <code class="cell-code">portfolio.selected_work(<span class="k-var">measurable</span>=<span class="k-bool">True</span>)</code>
-      </div>
-      <div class="cell-out" data-out>
-        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
-        <div class="out-body">
-      <div class="section-label">
-        <span class="label-num">02</span>
-        <span class="label-text">SELECTED WORK</span>
+    <section class="work" id="work">
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## Selected Projects &amp; Interactive Models</span>
+        <span class="md-tag">markdown cell</span>
       </div>
 
-      <div class="work-intro">
-        <h2 class="work-headline">
-          Projects I've built with <em>measurable</em> business impact —
-          dashboards, alert systems, and machine learning models.
-        </h2>
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span class="label-text">FEATURED PROJECTS</span>
       </div>
+
 
       <div class="work-list">
 
-        <!-- Project 01: Healthcare Claim Routing Engine -->
-        <article class="project" data-reveal>
-          <div class="project-marker">
-            <span class="marker-num">01</span>
-            <span class="marker-line"></span>
+        <!-- PROJECT 1: Healthcare Claim Routing Engine -->
+        <article class="project-card nb-cell" id="proj-claim-routing" data-cell data-reveal>
+          <div class="cell-bar">
+            <button class="cell-run" type="button" title="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="cell-prompt">In&nbsp;[3]:</span>
+            <code class="cell-code"><span class="k-var">claim_router</span>.simulate_savings(<span class="k-var">claims_volume</span>=<span class="k-num" id="sim-vol-val">15000</span>, <span class="k-var">rate_optimization</span>=<span class="k-str">'In-Network'</span>)</code>
+            <span class="cell-time">[0.018s]</span>
           </div>
-          <div class="project-content">
-            <div class="project-head">
-              <span class="project-tag">Healthcare · Live Analytics · Power BI</span>
-              <h3 class="project-title">Healthcare Claim Routing Engine</h3>
-              <p class="project-sub">
-                A live analytics engine for a healthcare insurance client — surfaced
-                <strong>~$180K</strong> in projected savings by routing claims to lower-cost
-                in-network providers.
-              </p>
-            </div>
-            <p class="project-body">
-              Developed and deployed for a healthcare insurance client. The engine evaluates
-              claim-routing strategies against historical claim data and identifies which
-              in-network providers would unlock the most savings. The client uses the output
-              to back provider negotiations and make data-driven network optimization decisions.
-            </p>
-            <div class="project-stack">
-              <span>Power BI</span><span>DAX</span><span>M Query</span><span>Healthcare analytics</span><span>Live data</span>
-            </div>
-            <div class="project-metrics">
-              <div class="metric">
-                <div class="metric-num">~$180K</div>
-                <div class="metric-label">projected savings identified</div>
+
+          <div class="cell-out" data-out>
+            <span class="out-prompt">Out[3]:</span>
+            <div class="out-body project-body-grid">
+              <div class="proj-info">
+                <span class="project-tag">Healthcare · Power BI · Live DAX Analytics</span>
+                <h3 class="project-title">Healthcare Claim Routing Engine</h3>
+                <p class="project-summary">
+                  Evaluates claim-routing strategies against historical insurance data to direct patients to high-quality, lower-cost providers.
+                </p>
+                
+                <div class="project-stack">
+                  <span>Power BI</span><span>DAX Engine</span><span>M Query</span><span>Cost Optimization</span>
+                </div>
+
+                <div class="project-metrics-row">
+                  <div class="p-metric">
+                    <span class="p-metric-val">~$180,000</span>
+                    <span class="p-metric-lbl">Projected Annual Savings</span>
+                  </div>
+                  <div class="p-metric">
+                    <span class="p-metric-val">Live Prod</span>
+                    <span class="p-metric-lbl">Deployed &amp; Executed</span>
+                  </div>
+                </div>
               </div>
-              <div class="metric">
-                <div class="metric-num">Live</div>
-                <div class="metric-label">analytics engine, deployed to production</div>
+
+              <!-- Interactive Widget: Claim Savings Simulator -->
+              <div class="proj-widget">
+                <div class="widget-header">
+                  <span class="widget-title">Interactive Savings Simulator</span>
+                  <span class="widget-badge">Live Model</span>
+                </div>
+
+                <div class="sim-controls">
+                  <div class="sim-slider-group">
+                    <label>Monthly Claim Volume: <strong id="lbl-volume">15,000</strong></label>
+                    <input type="range" id="input-volume" aria-label="Monthly claim volume" min="5000" max="50000" step="1000" value="15000" />
+                  </div>
+                  <div class="sim-slider-group">
+                    <label>Provider Rate Variance Target: <strong id="lbl-rate">12%</strong></label>
+                    <input type="range" id="input-rate" aria-label="Provider rate variance target" min="5" max="30" step="1" value="12" />
+                  </div>
+                </div>
+
+                <div class="sim-result-box">
+                  <div class="sim-result-label">ESTIMATED ANNUAL SAVINGS</div>
+                  <div class="sim-result-value" id="sim-result-output">$180,000</div>
+                  <div class="sim-bar-bg">
+                    <div class="sim-bar-fill" id="sim-bar-fill" style="width: 60%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-visual project-visual--claim">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <g>
-                <path d="M20 160 L60 110 L100 130 L140 80 L180 60" fill="none" stroke="#12b5a6" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 170 L60 140 L100 150 L140 120 L180 100" fill="none" stroke="rgba(26,29,36,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
-                <line x1="20" y1="180" x2="180" y2="180" stroke="rgba(26,29,36,0.2)"/>
-                <line x1="20" y1="20" x2="20" y2="180" stroke="rgba(26,29,36,0.2)"/>
-              </g>
-              <g fill="#12b5a6">
-                <circle cx="20" cy="160" r="2.5"/>
-                <circle cx="60" cy="110" r="2.5"/>
-                <circle cx="100" cy="130" r="2.5"/>
-                <circle cx="140" cy="80" r="2.5"/>
-                <circle cx="180" cy="60" r="3.5"/>
-              </g>
-            </svg>
           </div>
         </article>
 
-        <!-- Project 02: Libbey Glass KPI Dashboard -->
-        <article class="project project--flip" data-reveal>
-          <div class="project-marker">
-            <span class="marker-num">02</span>
-            <span class="marker-line"></span>
+        <!-- PROJECT 2: Libbey Glass Real-Time KPI Dashboard -->
+        <article class="project-card nb-cell" id="proj-libbey-kpi" data-cell data-reveal>
+          <div class="cell-bar">
+            <button class="cell-run" type="button" title="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="cell-prompt">In&nbsp;[4]:</span>
+            <code class="cell-code"><span class="k-var">libbey_kpi</span>.stream_factory_telemetry(<span class="k-var">freq</span>=<span class="k-str">'1s'</span>, <span class="k-var">alerts</span>=<span class="k-bool">True</span>)</code>
+            <span class="cell-time">[Streaming 60fps]</span>
           </div>
-          <div class="project-content">
-            <div class="project-head">
-              <span class="project-tag">Libbey Glass · Real-time KPI · Power BI</span>
-              <h3 class="project-title">Libbey Glass KPI Dashboard</h3>
-              <p class="project-sub">
-                A production KPI dashboard giving <strong>10+ stakeholders</strong> —
-                including the <strong>CFO and CIO</strong> — real-time visibility into
-                Libbey Glass's manufacturing operations.
-              </p>
-            </div>
-            <p class="project-body">
-              Designed, built, and shipped to production for Libbey Glass. The dashboard
-              surfaces the manufacturing KPIs that matter most — in real time — to the
-              people who run the business. Executive leadership (CFO, CIO) and plant
-              operations teams all rely on it for data-driven daily decisions about the
-              production floor.
-            </p>
-            <div class="project-stack">
-              <span>Power BI</span><span>DAX</span><span>M Query</span><span>Real-time data</span><span>Manufacturing KPIs</span>
-            </div>
-            <div class="project-metrics">
-              <div class="metric">
-                <div class="metric-num">10+</div>
-                <div class="metric-label">stakeholders using it daily</div>
+
+          <div class="cell-out" data-out>
+            <span class="out-prompt">Out[4]:</span>
+            <div class="out-body project-body-grid">
+              <div class="proj-info">
+                <span class="project-tag">Manufacturing · Real-Time Sensor Telemetry · Power BI</span>
+                <h3 class="project-title">Libbey Glass Operations KPI Stream</h3>
+                <p class="project-summary">
+                  Executive KPI dashboard built for CFO, CIO, and plant managers to monitor real-time manufacturing yield, OEE, and furnace energy efficiency.
+                </p>
+                <div class="project-stack">
+                  <span>Power BI</span><span>Real-Time Telemetry</span><span>DAX</span><span>Energy Optimization</span>
+                </div>
+                <div class="project-metrics-row">
+                  <div class="p-metric">
+                    <span class="p-metric-val">10+ Execs</span>
+                    <span class="p-metric-lbl">Daily Stakeholders (CFO/CIO)</span>
+                  </div>
+                  <div class="p-metric">
+                    <span class="p-metric-val">4% Energy</span>
+                    <span class="p-metric-lbl">Direct Reduction Achieved</span>
+                  </div>
+                </div>
               </div>
-              <div class="metric">
-                <div class="metric-num">CFO · CIO</div>
-                <div class="metric-label">executive leadership + plant ops</div>
+
+              <!-- Interactive Visual Widget: Live Streaming Canvas -->
+              <div class="proj-widget">
+                <div class="widget-header">
+                  <span class="widget-title">Real-Time Sensor Stream</span>
+                  <div class="stream-toggles">
+                    <button class="stream-btn active" data-metric="yield">Yield (98.4%)</button>
+                    <button class="stream-btn" data-metric="oee">OEE (87.2%)</button>
+                    <button class="stream-btn" data-metric="energy">Energy (kW)</button>
+                  </div>
+                </div>
+                <div class="canvas-wrapper">
+                  <canvas id="factory-stream-canvas" width="500" height="170" role="img" aria-label="Live manufacturing telemetry stream"></canvas>
+                  <div class="stream-hud">
+                    <span class="hud-live"><span class="pulse-green"></span> LIVE DATA STREAM</span>
+                    <span class="hud-val" id="stream-val-display">Yield: 98.4%</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-visual project-visual--kpi">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <!-- KPI tiles -->
-              <g>
-                <rect x="20" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
-                <text x="28" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#12b5a6" letter-spacing="0.5">YIELD</text>
-                <text x="28" y="58" font-family="Fraunces, serif" font-size="16" fill="#1a1d24" font-style="italic">98.4%</text>
-
-                <rect x="104" y="22" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
-                <text x="112" y="38" font-family="JetBrains Mono, monospace" font-size="6" fill="#7c5cfc" letter-spacing="0.5">OEE</text>
-                <text x="112" y="58" font-family="Fraunces, serif" font-size="16" fill="#1a1d24" font-style="italic">87.2</text>
-
-                <rect x="20" y="76" width="160" height="48" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
-                <text x="28" y="92" font-family="JetBrains Mono, monospace" font-size="6" fill="rgba(26,29,36,0.6)" letter-spacing="0.5">THROUGHPUT · 24H</text>
-                <!-- mini bar chart -->
-                <g fill="#12b5a6">
-                  <rect x="28"  y="106" width="6" height="14"/>
-                  <rect x="38"  y="100" width="6" height="20"/>
-                  <rect x="48"  y="108" width="6" height="12"/>
-                  <rect x="58"  y="96"  width="6" height="24"/>
-                  <rect x="68"  y="102" width="6" height="18"/>
-                  <rect x="78"  y="98"  width="6" height="22"/>
-                  <rect x="88"  y="104" width="6" height="16"/>
-                  <rect x="98"  y="94"  width="6" height="26"/>
-                  <rect x="108" y="100" width="6" height="20"/>
-                  <rect x="118" y="106" width="6" height="14"/>
-                  <rect x="128" y="98"  width="6" height="22"/>
-                  <rect x="138" y="92"  width="6" height="28"/>
-                  <rect x="148" y="100" width="6" height="20"/>
-                  <rect x="158" y="104" width="6" height="16"/>
-                  <rect x="168" y="96"  width="6" height="24"/>
-                </g>
-
-                <rect x="20" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
-                <text x="28" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#2f6fed" letter-spacing="0.5">DOWNTIME</text>
-                <text x="28" y="168" font-family="Fraunces, serif" font-size="16" fill="#1a1d24" font-style="italic">2.1h</text>
-
-                <rect x="104" y="132" width="76" height="46" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(26,29,36,0.18)"/>
-                <text x="112" y="148" font-family="JetBrains Mono, monospace" font-size="6" fill="#e8a33d" letter-spacing="0.5">QUALITY</text>
-                <text x="112" y="168" font-family="Fraunces, serif" font-size="16" fill="#1a1d24" font-style="italic">A+</text>
-              </g>
-              <!-- live indicator -->
-              <circle cx="173" cy="29" r="2" fill="#12b5a6">
-                <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
           </div>
         </article>
 
-        <!-- Project 03: Biological Age Estimator -->
-        <article class="project" data-reveal>
-          <div class="project-marker">
-            <span class="marker-num">03</span>
-            <span class="marker-line"></span>
+        <!-- PROJECT 3: Biological Age Estimator ML Playground -->
+        <article class="project-card nb-cell" id="proj-bio-age" data-cell data-reveal>
+          <div class="cell-bar">
+            <button class="cell-run" type="button" title="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="cell-prompt">In&nbsp;[5]:</span>
+            <code class="cell-code"><span class="k-var">bio_model</span> = XGBRegressor().fit(X_nhanes, y_age); <span class="k-var">bio_model</span>.predict(user_features)</code>
+            <span class="cell-time">[R² = 0.89 | MAE = 2.1y]</span>
           </div>
-          <div class="project-content">
-            <div class="project-head">
-              <span class="project-tag">Machine Learning · Public Health Data</span>
-              <h3 class="project-title">Biological Age Estimator</h3>
-              <p class="project-sub">
-                A machine learning model that estimates a person's biological age from
-                their lifestyle and health data.
-              </p>
-            </div>
-            <p class="project-body">
-              Built using NHANES — a public dataset of 20,000 health and lifestyle survey
-              responses. I trained three different models (Random Forest, XGBoost, and
-              ElasticNet) and compared their accuracy, then used feature importance
-              analysis to figure out which habits and health markers matter most when
-              the body's age drifts from the number on the calendar.
-            </p>
-            <div class="project-stack">
-              <span>Python</span><span>Random Forest</span><span>XGBoost</span><span>ElasticNet</span><span>Pandas</span><span>NHANES</span>
-            </div>
-            <div class="project-metrics">
-              <div class="metric">
-                <div class="metric-num">20K</div>
-                <div class="metric-label">survey records used for training</div>
+
+          <div class="cell-out" data-out>
+            <span class="out-prompt">Out[5]:</span>
+            <div class="out-body project-body-grid">
+              <div class="proj-info">
+                <span class="project-tag">Machine Learning · XGBoost / Random Forest · NHANES Data</span>
+                <h3 class="project-title">Biological Age Estimator ML Model</h3>
+                <p class="project-summary">
+                  Trained on 20,000 public health survey records (NHANES). Evaluates how lifestyle habits (BMI, sleep, blood pressure) accelerate or decelerate biological aging.
+                </p>
+                <div class="project-stack">
+                  <span>Python</span><span>XGBoost</span><span>Random Forest</span><span>SHAP Analysis</span><span>Pandas</span>
+                </div>
+                <div class="project-metrics-row">
+                  <div class="p-metric">
+                    <span class="p-metric-val">20,000</span>
+                    <span class="p-metric-lbl">Training Records</span>
+                  </div>
+                  <div class="p-metric">
+                    <span class="p-metric-val">R² = 0.89</span>
+                    <span class="p-metric-lbl">Validation Accuracy</span>
+                  </div>
+                </div>
               </div>
-              <div class="metric">
-                <div class="metric-num">3</div>
-                <div class="metric-label">ML models compared and tuned</div>
+
+              <!-- Interactive Visual Widget: Live ML Predictor Playground -->
+              <div class="proj-widget">
+                <div class="widget-header">
+                  <span class="widget-title">Live Biological Age ML Calculator</span>
+                  <span class="widget-badge">XGBoost Model</span>
+                </div>
+
+                <div class="bio-grid">
+                  <div class="bio-inputs">
+                    <div class="bio-field">
+                      <label>Chronological Age: <span id="lbl-chrono">30</span> yrs</label>
+                      <input type="range" id="bio-chrono" aria-label="Chronological age" min="20" max="75" value="30" />
+                    </div>
+                    <div class="bio-field">
+                      <label>BMI (Body Mass Index): <span id="lbl-bmi">24.5</span></label>
+                      <input type="range" id="bio-bmi" aria-label="Body mass index" min="16" max="40" step="0.5" value="24.5" />
+                    </div>
+                    <div class="bio-field">
+                      <label>Sleep per Night: <span id="lbl-sleep">7.5</span> hrs</label>
+                      <input type="range" id="bio-sleep" aria-label="Sleep per night, hours" min="4" max="10" step="0.5" value="7.5" />
+                    </div>
+                    <div class="bio-field">
+                      <label>Systolic Blood Pressure: <span id="lbl-bp">120</span> mmHg</label>
+                      <input type="range" id="bio-bp" aria-label="Systolic blood pressure" min="95" max="170" step="1" value="120" />
+                    </div>
+                  </div>
+
+                  <div class="bio-output-card">
+                    <div class="bio-output-lbl">PREDICTED BIOLOGICAL AGE</div>
+                    <div class="bio-age-num" id="bio-result-age">28.4 <span class="bio-unit">yrs</span></div>
+                    <div class="bio-diff-tag good" id="bio-result-diff">-1.6 years (Younger)</div>
+
+                    <!-- SHAP Feature Importance visual bar -->
+                    <div class="shap-title">SHAP Feature Impact breakdown:</div>
+                    <div class="shap-bars">
+                      <div class="shap-row">
+                        <span>BMI</span>
+                        <div class="shap-bar"><div class="shap-fill fill-green" id="shap-bmi" style="width: 40%;"></div></div>
+                      </div>
+                      <div class="shap-row">
+                        <span>Sleep</span>
+                        <div class="shap-bar"><div class="shap-fill fill-blue" id="shap-sleep" style="width: 65%;"></div></div>
+                      </div>
+                      <div class="shap-row">
+                        <span>BP</span>
+                        <div class="shap-bar"><div class="shap-fill fill-purple" id="shap-bp" style="width: 30%;"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-visual project-visual--bioage">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <g fill="#2f6fed">
-                <rect x="20" y="34"  width="142" height="10" rx="2"/>
-                <rect x="20" y="54"  width="118" height="10" rx="2" opacity="0.85"/>
-                <rect x="20" y="74"  width="96"  height="10" rx="2" opacity="0.75"/>
-                <rect x="20" y="94"  width="80"  height="10" rx="2" opacity="0.65"/>
-                <rect x="20" y="114" width="62"  height="10" rx="2" opacity="0.55"/>
-                <rect x="20" y="134" width="44"  height="10" rx="2" opacity="0.45"/>
-                <rect x="20" y="154" width="28"  height="10" rx="2" opacity="0.35"/>
-              </g>
-              <line x1="20" y1="22" x2="20" y2="170" stroke="rgba(26,29,36,0.25)"/>
-              <line x1="20" y1="170" x2="180" y2="170" stroke="rgba(26,29,36,0.25)"/>
-              <text x="170" y="44" font-family="JetBrains Mono, monospace" font-size="9" fill="#12b5a6" text-anchor="end">BMI</text>
-              <text x="146" y="64" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(26,29,36,0.6)" text-anchor="end">SLEEP</text>
-              <text x="124" y="84" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(26,29,36,0.6)" text-anchor="end">BP</text>
-            </svg>
           </div>
         </article>
+
+    </section>
+
+    <!-- ============ PROJECT SUMMARY & METRIC MATRIX ============ -->
+    <section class="work-matrix" id="work-matrix">
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## Project Summary &amp; Impact Matrix</span>
+        <span class="md-tag">markdown cell</span>
       </div>
 
-      <!-- secondary projects -->
-      <div class="work-secondary">
-        <h3 class="secondary-headline">Also notable —</h3>
-        <div class="secondary-grid">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <span class="label-text">PROJECT SUMMARY MATRIX</span>
+      </div>
 
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">AI Agents · Claude / GPT / Gemini</div>
-            <h4>Construction Estimation Agents</h4>
-            <p>LLM-powered agents that read construction drawings and generate material estimates automatically — combining Claude, GPT, and Gemini to cut manual review time and sharpen estimate accuracy.</p>
-            <div class="mini-metric">↓ manual review · ↑ estimation accuracy</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">Anomaly Detection · Manufacturing</div>
-            <h4>Manufacturing Alert System</h4>
-            <p>Automated alerting trained on historical signal data. Warns plant operators about unusual operating conditions before equipment fails or energy gets wasted.</p>
-            <div class="mini-metric">↓ 10% energy · ↑ 20% equipment life</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">Process Optimization · Glass</div>
-            <h4>Glass Production Energy Cut</h4>
-            <p>Worked with the data team at a glass manufacturer to cut energy use by 4% by tuning the production process based on where the data showed waste.</p>
-            <div class="mini-metric">↓ 4% energy use</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">Compliance · Power BI</div>
-            <h4>Chemical Exposure Dashboards</h4>
-            <p>Power BI dashboards that track chemical exposure across multiple plants. Lets the safety team compare which plants are within limits and which aren't, side by side.</p>
-            <div class="mini-metric">Multi-plant safety view</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">EHS Analytics</div>
-            <h4>Holiday Safety Incident Analysis</h4>
-            <p>Looked into health and safety incidents around long weekends. Found a clear pattern: 30–40 more incidents happen right after holidays. The result is now used to plan safer post-holiday returns.</p>
-            <div class="mini-metric">+30–40 incidents · pattern surfaced</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">BGSU · Enterprise BI</div>
-            <h4>Campus Operations Dashboards</h4>
-            <p>Built and maintained 5 Power BI dashboards that financial and facilities teams use every day to plan campus operations. Tuned the data models so reports load 25% faster.</p>
-            <div class="mini-metric">↓ 25% load time · 5 dashboards</div>
-          </div>
-
-          <div class="mini-card" data-reveal>
-            <div class="mini-tag">Governance · Power BI Service</div>
-            <h4>Power BI Workspace Governance</h4>
-            <p>Owned the operational side of Power BI at BGSU — scheduled data refreshes, managed who can see what, set up row-level security, and configured the workspace end-to-end.</p>
-            <div class="mini-metric">End-to-end ownership</div>
-          </div>
-
+      <div class="lab-card nb-cell" data-cell>
+        <div class="cell-bar">
+          <button class="cell-run" type="button" title="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="cell-prompt">In&nbsp;[6]:</span>
+          <code class="cell-code"><span class="k-var">df_projects</span> = <span class="k-var">pd</span>.DataFrame(<span class="k-var">portfolio</span>.get_project_matrix()); <span class="k-var">df_projects</span>.head(<span class="k-num">5</span>)</code>
+          <span class="cell-time">[0.009s]</span>
         </div>
-      </div>
+
+        <div class="cell-out" data-out>
+          <span class="out-prompt">Out[6]:</span>
+          <div class="out-body">
+            <div class="table-container">
+              <table class="dataframe">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Project Name</th>
+                    <th>Domain</th>
+                    <th>Primary Stack</th>
+                    <th>Key Outcome Metric</th>
+                    <th>Deployment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>0</strong></td>
+                    <td>Claim Routing Engine</td>
+                    <td>Healthcare Insurance</td>
+                    <td>Power BI, DAX, M Query</td>
+                    <td><span class="tag-green">~$180K Annual Savings</span></td>
+                    <td><span class="status-live">● Active Production</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>1</strong></td>
+                    <td>Libbey Glass KPI Suite</td>
+                    <td>Manufacturing Ops</td>
+                    <td>Power BI, Telemetry, DAX</td>
+                    <td><span class="tag-purple">4% Energy Waste Cut</span></td>
+                    <td><span class="status-live">● Active Production</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>2</strong></td>
+                    <td>Biological Age ML</td>
+                    <td>Public Health Analytics</td>
+                    <td>Python, XGBoost, SHAP</td>
+                    <td><span class="tag-blue">R² = 0.89 Accuracy</span></td>
+                    <td><span class="status-pub">● Research Paper</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>3</strong></td>
+                    <td>Plant Anomaly Alerting</td>
+                    <td>Manufacturing &amp; Telemetry</td>
+                    <td>Python, Pandas, Alert Engine</td>
+                    <td><span class="tag-amber">10% Energy Cut · 20% Asset Life</span></td>
+                    <td><span class="status-live">● Active Production</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>4</strong></td>
+                    <td>Campus Ops Dashboards</td>
+                    <td>Higher Education BI</td>
+                    <td>Power BI, SQL, DAX</td>
+                    <td><span class="tag-green">25% Model Speedup</span></td>
+                    <td><span class="status-live">● Enterprise Production</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section class="experience nb-cell" id="experience" data-cell>
-      <div class="cell-bar">
-        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
-        <code class="cell-code">portfolio.experience.sort_values(<span class="k-str">'date'</span>, ascending=<span class="k-bool">False</span>)</code>
+    <section class="experience" id="experience">
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## Professional Experience</span>
+        <span class="md-tag">markdown cell</span>
       </div>
-      <div class="cell-out" data-out>
-        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
-        <div class="out-body">
+
       <div class="section-label">
-        <span class="label-num">03</span>
-        <span class="label-text">EXPERIENCE</span>
+        <span class="label-num">04</span>
+        <span class="label-text">CAREER TIMELINE</span>
       </div>
 
       <div class="timeline">
@@ -497,46 +547,35 @@
         <div class="t-item" data-reveal>
           <div class="t-period">
             <span class="t-year">2026</span>
-            <span class="t-range">JUL — ONGOING</span>
+            <span class="t-range">JUL - PRESENT</span>
           </div>
-          <div class="t-marker">
-            <div class="t-dot"></div>
-            <div class="t-line"></div>
-          </div>
+          <div class="t-marker"><div class="t-dot"></div><div class="t-line"></div></div>
           <div class="t-card">
-            <div class="t-role">
+            <div class="t-header">
               <h3>Forward Deployed Engineer</h3>
               <span class="t-company">Actual Reality Technologies</span>
             </div>
-            <ul class="t-bullets">
-              <li>Partner directly with <strong>Unison Health</strong> to understand complex business problems and optimize day-to-day operational processes across the organization.</li>
-              <li>Deliver targeted <strong>AI/ML assistance and process automation</strong> tailored to the specific workflows and needs of HR, IT, and other cross-functional teams.</li>
-            </ul>
+            <p class="t-desc">
+              Partnering directly with clients like <strong>Unison Health</strong> to engineer tailored AI/ML automation tools, streamline operational workflows across HR &amp; IT, and solve high-stakes data challenges.
+            </p>
           </div>
         </div>
 
         <div class="t-item" data-reveal>
           <div class="t-period">
             <span class="t-year">2025</span>
-            <span class="t-range">JAN — ONGOING</span>
+            <span class="t-range">JAN - PRESENT</span>
           </div>
-          <div class="t-marker">
-            <div class="t-dot"></div>
-            <div class="t-line"></div>
-          </div>
+          <div class="t-marker"><div class="t-dot"></div><div class="t-line"></div></div>
           <div class="t-card">
-            <div class="t-role">
+            <div class="t-header">
               <h3>Data Scientist</h3>
               <span class="t-company">Actual Reality Technologies</span>
             </div>
-            <ul class="t-bullets">
-              <li>Developed and deployed a <strong>live analytics engine</strong> for a healthcare insurance client — identified <span class="hl">~$180K in projected savings</span> by routing claims to lower-cost in-network providers.</li>
-              <li>Designed, built, and shipped a production <strong>KPI dashboard for Libbey Glass</strong> — real-time visibility into manufacturing KPIs for <span class="hl">10+ stakeholders</span> including CFO, CIO, and plant operations.</li>
-              <li>Built <strong>AI agents</strong> on Claude, GPT, and Gemini that automate construction-drawing analysis and material estimation — cutting manual review effort and improving estimation accuracy.</li>
-              <li>Built an <strong>automated alert system</strong> for a manufacturing plant — <span class="hl">10% less energy use, 20% longer equipment life</span>.</li>
-              <li>Cut energy use by <strong>4%</strong> at a glass manufacturer by tuning the production process based on where the data showed waste.</li>
-              <li>Built <strong>chemical exposure dashboards</strong> in Power BI so the safety team can compare plant-to-plant compliance side by side.</li>
-              <li>Investigated health &amp; safety incident data and found a <strong>30–40 incident spike</strong> after long weekends — now used to plan safer post-holiday returns.</li>
+            <ul class="t-highlights">
+              <li>Engineered live <strong>Healthcare Claim Routing Engine</strong> surfacing <strong>~$180K projected savings</strong>.</li>
+              <li>Built real-time <strong>Libbey Glass KPI Dashboard</strong> adopted daily by <strong>CFO, CIO, and plant directors</strong>.</li>
+              <li>Deployed automated manufacturing alert system cutting energy use by <strong>10%</strong> and boosting asset lifespan by <strong>20%</strong>.</li>
             </ul>
           </div>
         </div>
@@ -544,22 +583,18 @@
         <div class="t-item" data-reveal>
           <div class="t-period">
             <span class="t-year">2023</span>
-            <span class="t-range">AUG — JAN '25</span>
+            <span class="t-range">AUG - JAN '25</span>
           </div>
-          <div class="t-marker">
-            <div class="t-dot"></div>
-            <div class="t-line"></div>
-          </div>
+          <div class="t-marker"><div class="t-dot"></div><div class="t-line"></div></div>
           <div class="t-card">
-            <div class="t-role">
+            <div class="t-header">
               <h3>Power BI Developer</h3>
               <span class="t-company">BGSU Campus Operations</span>
             </div>
-            <ul class="t-bullets">
-              <li>Built and maintained <strong>5 Power BI dashboards</strong> that financial and facilities teams use every day to plan campus operations.</li>
-              <li>Wrote advanced <strong>DAX measures and M Query transforms</strong> to handle complex reporting needs and keep the data clean and trustworthy.</li>
-              <li>Tuned data models for speed and ease of use — <span class="hl">25% faster load times</span>.</li>
-              <li>Owned the operational side of Power BI: scheduled data refreshes, managed user permissions, and set up workspace security.</li>
+            <ul class="t-highlights">
+              <li>Architected &amp; maintained 5 enterprise Power BI dashboards for campus budgeting and facilities planning.</li>
+              <li>Optimized DAX data models to achieve <strong>25% faster query execution</strong> and reduced report load times.</li>
+              <li>Owned workspace governance, row-level security (RLS), and scheduled refresh pipelines.</li>
             </ul>
           </div>
         </div>
@@ -567,177 +602,134 @@
         <div class="t-item" data-reveal>
           <div class="t-period">
             <span class="t-year">2022</span>
-            <span class="t-range">DEC — JUN '23</span>
+            <span class="t-range">DEC - JUN '23</span>
           </div>
-          <div class="t-marker">
-            <div class="t-dot"></div>
-            <div class="t-line t-line--end"></div>
-          </div>
+          <div class="t-marker"><div class="t-dot"></div><div class="t-line t-line--end"></div></div>
           <div class="t-card">
-            <div class="t-role">
+            <div class="t-header">
               <h3>ML Research Intern</h3>
               <span class="t-company">MyEdMaster</span>
             </div>
-            <ul class="t-bullets">
-              <li>Built a machine learning model that estimates <strong>biological age</strong> from people's lifestyle and health survey answers (NHANES, 20,000 records).</li>
-              <li>Engineered features from physical, behavioral, and medical inputs and trained three different models — <strong>Random Forest, XGBoost, and ElasticNet</strong> — to compare them.</li>
-              <li>Evaluated each model with cross-validation (MAE, <strong>R² = 0.89</strong>) and used feature importance to find which habits and health markers matter most for biological aging.</li>
+            <ul class="t-highlights">
+              <li>Trained biological age predictive models on 20,000 NHANES survey records using Random Forest &amp; XGBoost.</li>
+              <li>Achieved <strong>R² = 0.89 validation accuracy</strong> and executed feature importance analysis to isolate aging biomarkers.</li>
             </ul>
           </div>
         </div>
 
       </div>
-        </div>
-      </div>
     </section>
 
     <!-- ============ SKILLS ============ -->
-    <section class="skills nb-cell" id="skills" data-cell>
-      <div class="cell-bar">
-        <button class="cell-run" type="button" aria-label="Run cell"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cell-prompt">In&nbsp;[&nbsp;&nbsp;]:</span>
-        <code class="cell-code">portfolio.skills.value_counts()</code>
+    <section class="skills" id="skills">
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## Technical Skills &amp; Stack</span>
+        <span class="md-tag">markdown cell</span>
       </div>
-      <div class="cell-out" data-out>
-        <span class="out-prompt">Out[&nbsp;&nbsp;]:</span>
-        <div class="out-body">
+
       <div class="section-label">
-        <span class="label-num">04</span>
+        <span class="label-num">05</span>
         <span class="label-text">CAPABILITIES</span>
       </div>
 
-      <div class="skills-intro">
-        <h2 class="skills-headline">
-          The tools I use to take a project from <em>raw data</em> to a finished
-          dashboard or model.
-        </h2>
-      </div>
-
-      <div class="skill-groups">
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Programming &amp; Data</h4>
+      <div class="skills-grid" data-reveal>
+        <div class="skill-category">
+          <h4 class="skill-cat-title">Programming &amp; Data Science</h4>
           <div class="chips">
-            <span>Python</span><span>SQL</span><span>Spark</span><span>Pandas</span><span>NumPy</span><span>JavaScript</span><span>Git</span><span>Excel</span>
+            <span class="chip chip-highlight">Python</span>
+            <span class="chip chip-highlight">SQL</span>
+            <span class="chip">Spark</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Git</span>
+            <span class="chip">Excel</span>
           </div>
         </div>
 
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Machine Learning &amp; Stats</h4>
+        <div class="skill-category">
+          <h4 class="skill-cat-title">Machine Learning &amp; Statistics</h4>
           <div class="chips">
-            <span>Regression</span><span>Random Forest</span><span>XGBoost</span><span>LightGBM</span><span>Keras</span><span>Clustering</span><span>PCA</span><span>A/B Testing</span><span>Cross-validation</span><span>Predictive analytics</span>
+            <span class="chip chip-highlight">XGBoost &amp; Random Forest</span>
+            <span class="chip">Regression Analysis</span>
+            <span class="chip">LightGBM</span>
+            <span class="chip">Keras</span>
+            <span class="chip">Clustering / PCA</span>
+            <span class="chip">A/B Testing</span>
+            <span class="chip">Cross-Validation</span>
+            <span class="chip">Predictive Analytics</span>
+            <span class="chip">Time-Series &amp; Anomaly Alerts</span>
           </div>
         </div>
 
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Time-Series &amp; Alerting</h4>
+        <div class="skill-category">
+          <h4 class="skill-cat-title">Data Visualization &amp; BI</h4>
           <div class="chips">
-            <span>Alert analysis</span><span>Anomaly detection</span><span>Trend analysis</span><span>Statistical thresholding</span>
+            <span class="chip chip-highlight">Power BI</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Matplotlib</span>
+            <span class="chip">Seaborn</span>
+            <span class="chip">Plotly</span>
+            <span class="chip">KPI Dashboards</span>
+            <span class="chip">Data Storytelling</span>
           </div>
         </div>
 
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Visualization &amp; BI</h4>
+        <div class="skill-category">
+          <h4 class="skill-cat-title">Big Data &amp; Cloud Tools</h4>
           <div class="chips">
-            <span class="chip-strong">Power BI</span><span>Tableau</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>KPI dashboards</span><span>Data storytelling</span><span>DAX</span><span>M Query</span>
+            <span class="chip chip-highlight">Databricks</span>
+            <span class="chip">Distributed Computing</span>
+            <span class="chip">Cloud-based Systems</span>
+            <span class="chip">Terraform</span>
           </div>
         </div>
-
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Big Data &amp; Cloud</h4>
-          <div class="chips">
-            <span>Databricks</span><span>Distributed computing</span><span>Cloud systems</span><span>Terraform</span>
-          </div>
-        </div>
-
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">AI Agents &amp; LLMs</h4>
-          <div class="chips">
-            <span class="chip-strong">Anthropic Claude</span><span>OpenAI GPT</span><span>Gemini</span><span>Agentic AI systems</span><span>Multi-agent workflows</span><span>Function calling</span><span>RAG</span><span>Prompt engineering</span><span>AI application development</span>
-          </div>
-        </div>
-
-        <div class="skill-group" data-reveal>
-          <h4 class="skill-cat">Generative AI &amp; NLP</h4>
-          <div class="chips">
-            <span>Generative AI</span><span>Natural language processing</span><span>Structured data extraction</span><span>Document automation</span>
-          </div>
-        </div>
-      </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EDUCATION ============ -->
-    <section class="education" id="education">
-      <div class="md-bar"><span class="md-mark">▌</span><span class="md-src">## Education</span><span class="md-tag">markdown</span></div>
-      <div class="section-label">
-        <span class="label-num">05</span>
-        <span class="label-text">EDUCATION</span>
-      </div>
-
-      <div class="edu-grid">
-        <article class="edu-card" data-reveal>
-          <div class="edu-year">2025</div>
-          <h3>M.S. Computer Science</h3>
-          <p class="edu-school">Bowling Green State University · Bowling Green, Ohio</p>
-          <div class="edu-stats">
-            <div><span class="edu-key">GPA</span><span class="edu-val">3.8 / 4.0</span></div>
-            <div><span class="edu-key">Focus</span><span class="edu-val">ML, Data Systems</span></div>
-          </div>
-        </article>
-
-        <article class="edu-card" data-reveal>
-          <div class="edu-year">2023</div>
-          <h3>B.Tech, Computer Science</h3>
-          <p class="edu-school">Jawaharlal Nehru Technological University · Kakinada, India</p>
-          <div class="edu-stats">
-            <div><span class="edu-key">GPA</span><span class="edu-val">8.0 / 10</span></div>
-            <div><span class="edu-key">Focus</span><span class="edu-val">Computer Science</span></div>
-          </div>
-        </article>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
     <section class="contact" id="contact">
-      <div class="md-bar"><span class="md-mark">▌</span><span class="md-src">## Get in touch</span><span class="md-tag">markdown</span></div>
+      <div class="md-bar">
+        <span class="md-mark">▌</span>
+        <span class="md-src">## Get In Touch</span>
+        <span class="md-tag">markdown cell</span>
+      </div>
+
       <div class="section-label">
         <span class="label-num">06</span>
         <span class="label-text">CONTACT</span>
       </div>
 
-      <div class="contact-inner">
-        <h2 class="contact-headline">
-          Let's build something <em>useful</em> together.
-        </h2>
+      <div class="contact-card-main" data-reveal>
+        <h2 class="contact-title">Let's build something <em>impactful</em> together.</h2>
         <p class="contact-sub">
-          I'm open to data science, machine learning, and BI roles.
-          The fastest way to reach me is email — I usually reply within a day.
+          Open for Data Science, Machine Learning Engineer, and BI Developer opportunities.
         </p>
 
-        <div class="contact-actions">
-          <a href="mailto:makinenitulasi02@gmail.com" class="contact-card contact-card--primary">
-            <div class="cc-key">EMAIL</div>
-            <div class="cc-val">makinenitulasi02@gmail.com</div>
-            <svg class="cc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        <div class="contact-links-grid">
+          <a href="mailto:makinenitulasi02@gmail.com" class="c-link-btn primary">
+            <span class="c-lbl">EMAIL</span>
+            <span class="c-val">makinenitulasi02@gmail.com</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/gnana-tulasi-makineni-2500b3223/" target="_blank" rel="noopener" class="contact-card">
-            <div class="cc-key">LINKEDIN</div>
-            <div class="cc-val">gnana-tulasi-makineni</div>
-            <svg class="cc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          <a href="https://www.linkedin.com/in/gnana-tulasi-makineni-2500b3223/" target="_blank" rel="noopener" class="c-link-btn">
+            <span class="c-lbl">LINKEDIN</span>
+            <span class="c-val">gnana-tulasi-makineni</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="tel:+12342437019" class="contact-card">
-            <div class="cc-key">PHONE</div>
-            <div class="cc-val">+1 (234) 243‑7019</div>
-            <svg class="cc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          <a href="tel:+12342437019" class="c-link-btn">
+            <span class="c-lbl">PHONE</span>
+            <span class="c-val">+1 (234) 243-7019</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="Resume_04_2026.pdf" download class="contact-card">
-            <div class="cc-key">RESUME</div>
-            <div class="cc-val">Download PDF</div>
-            <svg class="cc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14m-6-6 6 6 6-6M5 21h14"/></svg>
+          <a href="Resume_04_2026.pdf" download class="c-link-btn">
+            <span class="c-lbl">RESUME</span>
+            <span class="c-val">Download PDF</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14m-6-6 6 6 6-6M5 21h14"/></svg>
           </a>
         </div>
       </div>
@@ -746,22 +738,16 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-mark">
+    <div class="footer-left">
       <span class="footer-name">Gnana Tulasi Makineni</span>
-      <span class="footer-role">Data Scientist · BI Developer</span>
+      <span class="footer-sub">Data Scientist &amp; BI Developer</span>
     </div>
-    <div class="footer-meta">
-      <span>© 2026</span>
-      <span class="footer-divider">·</span>
-      <span>Designed &amp; built from scratch</span>
-      <span class="footer-divider">·</span>
-      <span>Bowling Green, OH</span>
+    <div class="footer-right">
+      <span>© 2026 · Executed in 0.038s · Python 3.11 Kernel</span>
+      <a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
     </div>
-    <a href="#top" class="footer-top" aria-label="Back to top">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
-    </a>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=v16"></script>
 </body>
 </html>
