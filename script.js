@@ -108,82 +108,6 @@
     const particles = [];
     const particleCount = Math.min(Math.floor(width / 18), 75);
 
-    // Background Floating ML Math & Humor Strings
-    const mathJokes = [
-      "all models are wrong, some are useful",
-      "correlation is not causation",
-      "in God we trust, all others bring data",
-      "garbage in, garbage out",
-      "the simplest model that works, wins",
-      "signal over noise",
-      "validate before you celebrate",
-      "let the data decide",
-      "significant, and it matters",
-      "measure twice, model once",
-      "features beat parameters",
-      "reproducibility is a feature",
-      "clean data, clear decisions",
-      "the best model is the deployed one",
-      "trust the process, verify the data",
-      "beware the p-value trap"
-    ];
-
-    const floatingTexts = [];
-    const textCount = 10; // fewer than the joke pool so there are always spares to rotate in
-    const colors = ['#f37626', '#38bdf8', '#a3e635', '#c084fc', '#14b8a6', '#fb7185', '#fbbf24'];
-    const fontSizes = [11, 12, 13, 14, 15];
-
-    // Keep jokes off the hero's text elements only (name/tagline sit directly on the
-    // background). Everything else on the page is inside opaque cards that cover them,
-    // so this lets the aphorisms fill the gaps and margins without hitting any text.
-    const avoidEls = ['.hero-title', '.hero-tagline', '.pronounce', '.hero-meta', '.hero-actions', '.nb-cell--hero', '.hero .md-bar']
-      .map((s) => document.querySelector(s)).filter(Boolean);
-    const PADX = 48, PADY = 22; // generous clearance so nothing crowds the text
-    const overText = (x, y) => avoidEls.some((el) => {
-      const r = el.getBoundingClientRect();           // viewport coords == canvas coords
-      if (!r.width) return false;
-      return x > r.left - PADX && x < r.right + PADX && y > r.top - PADY && y < r.bottom + PADY;
-    });
-    const safeSpawn = () => {
-      let x, y, tries = 0;
-      do {
-        x = Math.random() * width;
-        y = Math.random() * height;
-        tries++;
-      } while (overText(x, y) && tries < 25);
-      return { x, y };
-    };
-
-    // Start with a shuffled, non-repeating set of jokes
-    const shuffled = [...mathJokes].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < textCount; i++) {
-      const pos = safeSpawn();
-      floatingTexts.push({
-        text: shuffled[i],
-        x: pos.x,
-        y: pos.y,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        opacity: Math.random() * 0.22 + 0.34,
-        color: colors[i % colors.length],
-        fontSize: fontSizes[i % fontSizes.length]
-      });
-    }
-
-    // Every 1.8s swap one joke for a fresh one that isn't currently on screen
-    setInterval(() => {
-      const visible = new Set(floatingTexts.map((f) => f.text));
-      const spares = mathJokes.filter((j) => !visible.has(j));
-      if (!spares.length) return;
-      const t = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
-      const pos = safeSpawn();
-      t.text = spares[Math.floor(Math.random() * spares.length)];
-      t.x = pos.x; t.y = pos.y;
-      t.color = colors[Math.floor(Math.random() * colors.length)];
-      t.fontSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
-      t.opacity = Math.random() * 0.22 + 0.34;
-    }, 1800);
-
     let mouse = { x: width / 2, y: height / 2, radius: 140 };
 
     window.addEventListener('mousemove', (e) => {
@@ -204,28 +128,6 @@
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
-
-      // Draw background floating ML & Stats text jokes across the whole screen,
-      // fading out only while passing behind the hero title box.
-      floatingTexts.forEach((t) => {
-        t.x += t.vx;
-        t.y += t.vy;
-
-        if (t.x < -300 || t.x > width + 300) t.vx *= -1;
-        if (t.y < -50 || t.y > height + 50) t.vy *= -1;
-
-        if (overText(t.x, t.y)) return; // never draw over the hero name/text
-
-        ctx.save();
-        ctx.font = `${t.fontSize}px "JetBrains Mono", "Courier New", monospace`;
-        ctx.globalAlpha = t.opacity;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = t.color;
-        ctx.fillStyle = t.color;
-        ctx.fillText(t.text, t.x, t.y);
-        ctx.shadowBlur = 0;
-        ctx.restore();
-      });
 
       // Draw particle connections
       for (let i = 0; i < particles.length; i++) {
