@@ -371,10 +371,10 @@ main.main-content {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 8vw, 6.5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem); /* just a little bigger than body text */
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   margin: 0 0 1rem;
   position: relative;
   z-index: 2;
@@ -392,7 +392,8 @@ main.main-content {
   display: block;
 }
 
-.title-line { display: block; }
+.title-line { display: inline; }
+.hero-name .title-highlight { display: inline; }
 
 .pronounce {
   display: inline-flex;

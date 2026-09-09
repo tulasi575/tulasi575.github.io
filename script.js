@@ -105,94 +105,118 @@
       height = canvas.height = window.innerHeight;
     });
 
-    const particles = [];
-    const particleCount = Math.min(Math.floor(width / 18), 75);
+    // ── A layered neural net that animates a forward pass (blue signal flowing
+    //    left→right) then a backward pass (orange gradient flowing right→left) —
+    //    i.e. backpropagation, drawn as the ambient background.
+    const BLUE = '56,189,248', ORANGE = '243,118,38';
+    let layers = [];   // array of layers; each layer = array of {x,y}
+    let edges = [];     // {a:{x,y}, b:{x,y}, li} between layer li and li+1
 
-    let mouse = { x: width / 2, y: height / 2, radius: 140 };
-
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7,
-        radius: Math.random() * 2 + 1.5,
-        color: i % 4 === 0 ? '#f37626' : (i % 3 === 0 ? '#14b8a6' : '#3b82f6'),
+    const buildNet = () => {
+      const shape = width < 700 ? [4, 6, 5, 3] : [5, 8, 8, 6, 4, 2];
+      const leftX = width * 0.05, rightX = width - width * 0.05;
+      // Start the network vertically right after the title ("...BI Engineer"),
+      // filling the hero space below it.
+      const titleEl = document.querySelector('.hero-title');
+      const topY = titleEl ? titleEl.getBoundingClientRect().bottom + 28 : height * 0.45;
+      const botY = height - 24;
+      const colGap = (rightX - leftX) / (shape.length - 1);
+      layers = shape.map((count, li) => {
+        const x = leftX + li * colGap;
+        const rowGap = (botY - topY) / (count + 1);
+        return Array.from({ length: count }, (_, i) => ({ x, y: topY + (i + 1) * rowGap }));
       });
-    }
+      edges = [];
+      for (let li = 0; li < layers.length - 1; li++) {
+        layers[li].forEach((a) => layers[li + 1].forEach((b) => edges.push({ a, b, li })));
+      }
+    };
+    buildNet();
+    window.addEventListener('resize', buildNet);
+
+    // Wave front sweeps 0→(L-1) forward, then back to 0; the color flips per direction.
+    const L = () => layers.length;
+    let front = 0, dir = 1;         // dir: +1 forward (blue), -1 backward (orange)
+    const SPEED = 0.018;
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw particle connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+      front += dir * SPEED;
+      if (front >= L() - 1) { front = L() - 1; dir = -1; }
+      else if (front <= 0)  { front = 0;       dir = 1;  }
+      const col = dir > 0 ? BLUE : ORANGE;
 
-          if (dist < 130) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(148, 163, 184, ${0.18 * (1 - dist / 130)})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw & update particles
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        // Mouse interaction signal glow
-        const mdx = p.x - mouse.x;
-        const mdy = p.y - mouse.y;
-        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mdist < mouse.radius) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(243, 118, 38, ${0.35 * (1 - mdist / mouse.radius)})`;
-          ctx.stroke();
-        }
-
+      // Edges — faint baseline, brighter where the wave is crossing
+      edges.forEach((e) => {
+        const prog = front - e.li;                 // 0..1 while the wave crosses this gap
+        const active = prog > -0.15 && prog < 1.15;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = p.color;
-        ctx.fill();
-        ctx.shadowBlur = 0;
+        ctx.moveTo(e.a.x, e.a.y);
+        ctx.lineTo(e.b.x, e.b.y);
+        ctx.strokeStyle = active
+          ? `rgba(${col},${0.10 + 0.22 * (1 - Math.abs(prog - 0.5) * 2)})`
+          : 'rgba(148,163,184,0.05)';
+        ctx.lineWidth = active ? 1.1 : 0.5;
+        ctx.stroke();
+
+        // A travelling pulse dot riding this edge in the wave's direction
+        if (active && prog >= 0 && prog <= 1) {
+          const t = dir > 0 ? prog : 1 - prog;
+          const px = e.a.x + (e.b.x - e.a.x) * t;
+          const py = e.a.y + (e.b.y - e.a.y) * t;
+          ctx.beginPath();
+          ctx.arc(px, py, 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${col},0.9)`;
+          ctx.shadowBlur = 8; ctx.shadowColor = `rgba(${col},0.9)`;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      });
+
+      // Nodes — glow as the wave front reaches their layer
+      layers.forEach((layer, li) => {
+        const near = 1 - Math.min(1, Math.abs(front - li));   // 1 at the front, fades away
+        layer.forEach((n) => {
+          const r = 4 + near * 3;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = near > 0.05 ? `rgba(${col},${0.35 + near * 0.5})` : 'rgba(148,163,184,0.28)';
+          if (near > 0.05) { ctx.shadowBlur = 14 * near; ctx.shadowColor = `rgba(${col},0.9)`; }
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          ctx.strokeStyle = `rgba(${col},${0.2 + near * 0.4})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
       });
 
       if (running) requestAnimationFrame(animate);
     };
 
-    // The ambient background always floats (gentle, intentional). Only pause it when
-    // the hero is scrolled away or the tab is hidden, to save CPU.
     let running = true;
     animate();
     const resume = () => { if (!running) { running = true; animate(); } };
-    if ('IntersectionObserver' in window) {
-      const heroEl = document.querySelector('.hero') || canvas;
-      new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) resume();
-        else running = false;
-      }, { threshold: 0 }).observe(heroEl);
-    }
+
+    // Show the background only through the hero's summary-metrics cell; fade it out
+    // and pause it once the reader scrolls past that cell.
+    canvas.style.transition = 'opacity 0.5s ease';
+    const cutoffEl = document.getElementById('cell-0') || document.querySelector('.hero');
+    const updateVisibility = () => {
+      let past = false;
+      if (cutoffEl) {
+        const bottom = cutoffEl.getBoundingClientRect().bottom;
+        past = bottom < window.innerHeight * 0.25; // metrics cell scrolled mostly out of view
+      }
+      canvas.style.opacity = past ? '0' : '1';
+      if (past) { running = false; } else { resume(); }
+    };
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    updateVisibility();
+
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) running = false; else resume();
+      if (document.hidden) running = false; else updateVisibility();
     });
   };
 
